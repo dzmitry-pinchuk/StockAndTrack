@@ -1,2 +1,2 @@
 # StockAndTrack
-mitroprogram to transfer item between stock
+miсroprogram to transfer item between stock

@@ -6,6 +6,9 @@ public class Track extends AbstractEntity{
 	private int maxPrice;
 	private String name;
 	private int type;
+//	1 - auto
+//	2 - train
+//	3 - all
 	
 	public String getName() {
 		return name;

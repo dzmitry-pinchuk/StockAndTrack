@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 public class Stock extends AbstractEntity {
 
-	private int type;
 	private ArrayList<StockHasItems> items;
+	private int type;
+//	1 - auto
+//	2 - train
+//	3 - all
 	
 	public int getType() {
 		return type;

@@ -1,4 +1,4 @@
-package com.qaprosoft.dao.impl;
+package com.qaprosoft.dao.jdbc.impl;
 
 import java.util.ArrayList;
 

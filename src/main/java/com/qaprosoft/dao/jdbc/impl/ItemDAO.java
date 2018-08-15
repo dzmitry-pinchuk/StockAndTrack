@@ -1,25 +1,25 @@
-package com.qaprosoft.dao.impl;
+package com.qaprosoft.dao.jdbc.impl;
 
 import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qaprosoft.dao.ITrackDAO;
-import com.qaprosoft.entity.Track;
+import com.qaprosoft.dao.IItemDAO;
+import com.qaprosoft.entity.Item;
 
-public class TrackDAO implements ITrackDAO{
+public class ItemDAO implements IItemDAO {
 	
 	private static Logger logger = LogManager.getLogger();
 
 	@Override
-	public ArrayList<Track> getAll() {
+	public ArrayList<Item> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Track getById(Long id) {
+	public Item getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -31,7 +31,7 @@ public class TrackDAO implements ITrackDAO{
 	}
 
 	@Override
-	public void createNewTrack(Track track) {
+	public void createNewItem(Item item) {
 		// TODO Auto-generated method stub
 		
 	}

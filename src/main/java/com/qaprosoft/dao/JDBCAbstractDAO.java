@@ -14,7 +14,7 @@ import com.qaprosoft.connectionPool.ConnectionPool;
 
 public class JDBCAbstractDAO {
 
-	private static Logger logger = LogManager.getLogger();
+	private static final Logger logger = LogManager.getLogger();
 	private ConnectionPool cp = ConnectionPool.getCp();
 
 	public Connection getConnection() {

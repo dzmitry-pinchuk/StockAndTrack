@@ -4,25 +4,26 @@ import java.util.ArrayList;
 
 public class Stock extends AbstractEntity {
 
-	private ArrayList<StockHasItems> items;
-	private int type;
+	private ArrayList<Item> items;
+	private TypeOfTransport type;
+	
 //	1 - auto
 //	2 - train
 //	3 - all
 	
-	public int getType() {
+	public TypeOfTransport getType() {
 		return type;
 	}
 	
-	public void setType(int type) {
+	public void setType(TypeOfTransport type) {
 		this.type = type;
 	}
 	
-	public ArrayList<StockHasItems> getItems() {
+	public ArrayList<Item> getItems() {
 		return items;
 	}
 	
-	public void setItems(ArrayList<StockHasItems> items) {
+	public void setItems(ArrayList<Item> items) {
 		this.items = items;
 	}
 

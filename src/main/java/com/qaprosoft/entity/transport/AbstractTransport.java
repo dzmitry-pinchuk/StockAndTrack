@@ -6,6 +6,7 @@ import com.qaprosoft.entity.TypeOfTransport;
 public abstract class AbstractTransport extends AbstractEntity {
 	
 	private Integer max—arrying—apacity;
+//	 C c
 	private Integer maxPrice;
 	private String name;
 	private TypeOfTransport type;

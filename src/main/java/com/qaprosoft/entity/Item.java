@@ -3,8 +3,8 @@ package com.qaprosoft.entity;
 public class Item extends AbstractEntity{
 	
 	private String name;
-	private int volume;
-	private int price;
+	private Integer weight;
+	private Integer price;
 	
 	public String getName() {
 		return name;
@@ -12,21 +12,21 @@ public class Item extends AbstractEntity{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getVolume() {
-		return volume;
+	public Integer getWeight() {
+		return weight;
 	}
-	public void setVolume(int volume) {
-		this.volume = volume;
+	public void setWeight(Integer weight) {
+		this.weight = weight;
 	}
-	public int getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 	@Override
 	public String toString() {
-		return "Item [ id " + getId() + ", name=" + name + ", volume=" + volume + ", price=" + price + "]";
+		return "Item [ id " + getId() + ", name=" + name + ", weight=" + weight + ", price=" + price + "]";
 	}
 	
 	

@@ -27,8 +27,8 @@ DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  `price` varchar(45) NOT NULL,
-  `volume` varchar(45) NOT NULL,
+  `price` int(11) NOT NULL,
+  `weight` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
@@ -40,7 +40,7 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1,'table','5','5'),(2,'carParts','20','4'),(3,'computers','500','3'),(4,'mobilePhone','700','1'),(5,'humanOrgans','1000','1'),(6,'tv','800','2'),(7,'clother','30','1'),(8,'sexToys','50','1'),(9,'guitars','300','1'),(10,'pils','40','1'),(11,'drugs','100','1'),(12,'wepons','1000','10'),(13,'bullets','3','2'),(14,'musicDisk','4','1'),(15,'programmers','750','3'),(16,'candies','1','2'),(17,'batteries','2','1'),(18,'alcohol','15','10'),(19,'instruments','45','15'),(20,'notebook','900','2'),(21,'hardDisk','40','1'),(22,'food','3','7'),(23,'cable','2','2'),(24,'boat','150','10'),(25,'mummy','850','6'),(26,'bag','60','3'),(27,'footwear','90','2'),(28,'tshort','5','1'),(29,'bigBox','450','25'),(30,'littleBox','220','12');
+INSERT INTO `items` VALUES (1,'table',5,5),(2,'carParts',20,4),(3,'computers',500,3),(4,'mobilePhone',700,1),(5,'humanOrgans',1000,1),(6,'tv',800,2),(7,'clother',30,1),(8,'sexToys',50,1),(9,'guitars',300,1),(10,'pils',40,1),(11,'drugs',100,1),(12,'wepons',1000,10),(13,'bullets',3,2),(14,'musicDisk',4,1),(15,'programmers',750,3),(16,'candies',1,2),(17,'batteries',2,1),(18,'alcohol',15,10),(19,'instruments',45,15),(20,'notebook',900,2),(21,'hardDisk',40,1),(22,'food',3,7),(23,'cable',2,2),(24,'boat',150,10),(25,'mummy',850,6),(26,'bag',60,3),(27,'footwear',90,2),(28,'tshort',5,1),(29,'bigBox',450,25),(30,'littleBox',220,12);
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `tracks` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_Tracks_transport1_idx` (`transport_id`),
-  CONSTRAINT `fk_Tracks_transport1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`id`)
+  CONSTRAINT `fk_Tracks_transport1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -142,7 +142,7 @@ CREATE TABLE `trains` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_Trains_transport1_idx` (`transport_id`),
-  CONSTRAINT `fk_Trains_transport1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`id`)
+  CONSTRAINT `fk_Trains_transport1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -166,7 +166,7 @@ DROP TABLE IF EXISTS `transport`;
 CREATE TABLE `transport` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  `max_сarrying_сapacity` varchar(45) NOT NULL,
+  `max_сarrying_сapacity` int(11) NOT NULL,
   `types_of_transports_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
@@ -181,7 +181,7 @@ CREATE TABLE `transport` (
 
 LOCK TABLES `transport` WRITE;
 /*!40000 ALTER TABLE `transport` DISABLE KEYS */;
-INSERT INTO `transport` VALUES (1,'mb_actros','20',1),(2,'train_name','200',2),(3,'gezel','5',1),(4,'mini_gezel','3',1),(5,'little_train','50',2);
+INSERT INTO `transport` VALUES (1,'mb_actros',20,1),(2,'train_name',200,2),(3,'gezel',5,1),(4,'mini_gezel',3,1),(5,'little_train',50,2);
 /*!40000 ALTER TABLE `transport` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,33 +213,6 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'sat'
 --
-/*!50003 DROP PROCEDURE IF EXISTS `autoset` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `autoset`()
-BEGIN
-	SET @a=1;
-    WHILE @a<=10 DO
-		SET @b=1;
-		WHILE @b<=30 DO
-			INSERT stocks_has_items (`stocks_id`, `items_id`) VALUE (@a, @b);
-			SET @b=@b +1;
-		END WHILE;
-	SET @a=@a+1;
-    END WHILE;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -250,4 +223,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-16 20:17:55
+-- Dump completed on 2018-08-16 20:36:52

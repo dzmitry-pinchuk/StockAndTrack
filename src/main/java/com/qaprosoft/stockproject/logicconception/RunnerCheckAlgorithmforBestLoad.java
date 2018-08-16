@@ -1,4 +1,4 @@
-package com.qaprosoft.stockandstack.logicconception;
+package com.qaprosoft.stockproject.logicconception;
 
 public class RunnerCheckAlgorithmforBestLoad {
 

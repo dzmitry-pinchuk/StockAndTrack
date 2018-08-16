@@ -16,8 +16,8 @@ import com.qaprosoft.stockproject.entity.Item;
 
 public class ItemDAO extends JDBCAbstractDAO implements IItemDAO {
 	
-    private static final Logger logger = Logger.getLogger(ItemDAO.class);
-	
+    private static final Logger logger = LogManager.getLogger();
+    
 	public static final String SQL_SELECT_ALL_ITEMS = "SELECT * FROM sat.items";
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.items WHERE id=?";
 	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.items WHERE id = ?";

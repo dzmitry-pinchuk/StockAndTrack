@@ -1,11 +1,13 @@
-package com.qaprosoft.stockandstack.logicconception;
+package com.qaprosoft.stockproject.logicconception;
 
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qaprosoft.entity.Item;
+import com.qaprosoft.stockproject.entity.Item;
+
+
 
 
 public class AlgorithmforBestLoad {

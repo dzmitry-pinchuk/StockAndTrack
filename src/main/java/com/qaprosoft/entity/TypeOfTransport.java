@@ -6,7 +6,10 @@ public enum TypeOfTransport {
 	
 	private int id;
 	
-	private TypeOfTransport(int id) {
+	TypeOfTransport() {
+	}
+	
+	TypeOfTransport(int id) {
 		this.setId(id);
 	}
 	
@@ -14,7 +17,7 @@ public enum TypeOfTransport {
 		return id;
 	}
 	
-	private void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	

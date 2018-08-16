@@ -6,7 +6,6 @@ import com.qaprosoft.entity.TypeOfTransport;
 public abstract class AbstractTransport extends AbstractEntity {
 	
 	private Integer maxCarryingCapacity;
-//	 C c
 	private Integer maxPrice;
 	private String name;
 	private TypeOfTransport type;
@@ -20,7 +19,7 @@ public abstract class AbstractTransport extends AbstractEntity {
 	public Integer getMaxCarryingCapacity() {
 		return maxCarryingCapacity;
 	}
-	public void setMax—arrying—apacity(Integer maxCarryingCapacity) {
+	public void setMaxCarryingCapacity(Integer maxCarryingCapacity) {
 		this.maxCarryingCapacity = maxCarryingCapacity;
 	}
 	public void setMaxPrice(Integer maxPrice) {

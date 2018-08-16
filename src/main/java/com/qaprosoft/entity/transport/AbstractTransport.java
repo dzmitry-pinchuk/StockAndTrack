@@ -5,23 +5,24 @@ import com.qaprosoft.entity.TypeOfTransport;
 
 public abstract class AbstractTransport extends AbstractEntity {
 	
-	private int maxÑarryingÑapacity;
-	private int maxPrice;
+	private Integer maxÑarryingÑapacity;
+	private Integer maxPrice;
 	private String name;
 	private TypeOfTransport type;
 //	1 - auto
 //	2 - train
 //	3 - all
-	public int getMaxÑarryingÑapacity() {
-		return maxÑarryingÑapacity;
-	}
-	public void setMaxÑarryingÑapacity(int maxÑarryingÑapacity) {
-		this.maxÑarryingÑapacity = maxÑarryingÑapacity;
-	}
-	public int getMaxPrice() {
+	
+	public Integer getMaxPrice() {
 		return maxPrice;
 	}
-	public void setMaxPrice(int maxPrice) {
+	public Integer getMaxÑarryingÑapacity() {
+		return maxÑarryingÑapacity;
+	}
+	public void setMaxÑarryingÑapacity(Integer maxÑarryingÑapacity) {
+		this.maxÑarryingÑapacity = maxÑarryingÑapacity;
+	}
+	public void setMaxPrice(Integer maxPrice) {
 		this.maxPrice = maxPrice;
 	}
 	public String getName() {
@@ -38,7 +39,7 @@ public abstract class AbstractTransport extends AbstractEntity {
 	}
 	@Override
 	public String toString() {
-		return "AbstractTransport [ id= " + getId() + ", maxVolume=" + maxÑarryingÑapacity + ", maxPrice=" + maxPrice + ", name=" + name + ", type="
+		return "AbstractTransport [ id= " + getId() + ", maxÑarryingÑapacity=" + maxÑarryingÑapacity + ", maxPrice=" + maxPrice + ", name=" + name + ", type="
 				+ type + "]";
 	}
 

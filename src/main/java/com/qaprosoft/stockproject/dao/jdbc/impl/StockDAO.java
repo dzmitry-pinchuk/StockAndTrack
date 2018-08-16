@@ -1,4 +1,4 @@
-package com.qaprosoft.dao.jdbc.impl;
+package com.qaprosoft.stockproject.dao.jdbc.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,10 +10,10 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qaprosoft.dao.IStockDAO;
-import com.qaprosoft.dao.JDBCAbstractDAO;
-import com.qaprosoft.entity.Stock;
-import com.qaprosoft.entity.TypeOfTransport;
+import com.qaprosoft.stockproject.dao.IStockDAO;
+import com.qaprosoft.stockproject.dao.JDBCAbstractDAO;
+import com.qaprosoft.stockproject.entity.Stock;
+import com.qaprosoft.stockproject.entity.TypeOfTransport;
 
 public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 

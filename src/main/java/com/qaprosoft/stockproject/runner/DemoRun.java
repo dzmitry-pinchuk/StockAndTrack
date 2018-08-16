@@ -1,4 +1,4 @@
-package com.qaprosoft.runner;
+package com.qaprosoft.stockproject.runner;
 
 public class DemoRun {
 

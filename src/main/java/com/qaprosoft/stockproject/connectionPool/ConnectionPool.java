@@ -1,4 +1,4 @@
-package com.qaprosoft.connectionPool;
+package com.qaprosoft.stockproject.connectionPool;
 
 import java.io.FileReader;
 import java.io.IOException;

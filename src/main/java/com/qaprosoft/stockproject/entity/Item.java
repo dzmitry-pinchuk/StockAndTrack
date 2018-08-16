@@ -1,4 +1,4 @@
-package com.qaprosoft.entity;
+package com.qaprosoft.stockproject.entity;
 
 public class Item extends AbstractEntity{
 	

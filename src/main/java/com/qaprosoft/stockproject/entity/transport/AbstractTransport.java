@@ -1,7 +1,7 @@
-package com.qaprosoft.entity.transport;
+package com.qaprosoft.stockproject.entity.transport;
 
-import com.qaprosoft.entity.AbstractEntity;
-import com.qaprosoft.entity.TypeOfTransport;
+import com.qaprosoft.stockproject.entity.AbstractEntity;
+import com.qaprosoft.stockproject.entity.TypeOfTransport;
 
 public abstract class AbstractTransport extends AbstractEntity {
 	

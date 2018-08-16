@@ -1,8 +1,8 @@
-package com.qaprosoft.dao;
+package com.qaprosoft.stockproject.dao;
 
 import java.util.ArrayList;
 
-import com.qaprosoft.entity.Item;
+import com.qaprosoft.stockproject.entity.Item;
 
 public interface IItemDAO {
 	

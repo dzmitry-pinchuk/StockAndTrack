@@ -1,4 +1,4 @@
-package com.qaprosoft.dao.jdbc.impl;
+package com.qaprosoft.stockproject.dao.jdbc.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,54 +10,53 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qaprosoft.dao.IStockDAO;
-import com.qaprosoft.dao.JDBCAbstractDAO;
-import com.qaprosoft.entity.Stock;
-import com.qaprosoft.entity.TypeOfTransport;
+import com.qaprosoft.stockproject.dao.ITrainDAO;
+import com.qaprosoft.stockproject.dao.JDBCAbstractDAO;
+import com.qaprosoft.stockproject.entity.TypeOfTransport;
+import com.qaprosoft.stockproject.entity.transport.Train;
 
-public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
-
+public class TrainDAO extends JDBCAbstractDAO implements ITrainDAO{
+	
 	private static Logger logger = LogManager.getLogger();
 
-	public static final String SQL_SELECT_ALL_ITEMS = "SELECT * FROM sat.stocks";
-	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.stocks WHERE id=?";
-	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.stocks WHERE id = ?";
-	public static final String SQL_CREATE_NEW_ITEM = "INSERT INTO sat.stocks (`name`, `types_of_transports_id`) VALUES (?,?)";
+	public static final String SQL_SELECT_ALL_TRACK = "SELECT * FROM sat.train t LEFT JOIN sat.transport tr ON t.transport_id=tr.id";
+	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.tracks t LEFT JOIN sat.transport tr ON t.transport_id=tr.id WHERE id=?";
+	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.tracks WHERE id = ?";
 
 	@Override
-	public ArrayList<Stock> getAll() {
-		ArrayList<Stock> allStocks = new ArrayList<>();
+	public ArrayList<Train> getAll() {
+		ArrayList<Train> allTrains = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			conn = getConnection();
-			ps = conn.prepareStatement(SQL_SELECT_ALL_ITEMS);
+			ps = conn.prepareStatement(SQL_SELECT_ALL_TRACK);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				allStocks.add(createObject(rs));
+				allTrains.add(createObject(rs));
 			}
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
 		} finally {
 			endOperation(ps, conn, rs);
 		}
-		return allStocks;
+		return allTrains;
 	}
 
-	private Stock createObject(ResultSet rs) {
-		Stock stock = new Stock();
+	private Train createObject(ResultSet rs) {
+		Train train = new Train();
 		try {
-			stock.setId(rs.getLong("id"));
+			train.setId(rs.getLong(1));
+			train.setNumberOfWagons(rs.getInt("number_of_wagons"));
+			train.setMaxCarryingCapacity(rs.getInt("max_ñarrying_ñapacity"));
+			train.setName(rs.getString("name"));
 			switch (rs.getInt("types_of_transports_id")) {
 			case 1:
-				stock.setType(TypeOfTransport.FOR_TRACK);
+				train.setType(TypeOfTransport.FOR_TRACK);
 				break;
 			case 2:
-				stock.setType(TypeOfTransport.FOR_TRAIN);
-				break;
-			case 3:
-				stock.setType(TypeOfTransport.FOR_ALL);
+				train.setType(TypeOfTransport.FOR_TRAIN);
 				break;
 			default:
 				logger.log(Level.ERROR, "Can not read type");
@@ -66,12 +65,12 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
 		}
-		return stock;
+		return train;
 	}
 
 	@Override
-	public Stock getById(Long id) {
-		Stock stock = new Stock();
+	public Train getById(Long id) {
+		Train train = new Train();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -81,13 +80,13 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 			ps.setLong(1, id);
 			rs = ps.executeQuery();
 			rs.next();
-			stock = createObject(rs);
+			train = createObject(rs);
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
 		} finally {
 			endOperation(ps, conn, rs);
 		}
-		return stock;
+		return train;
 	}
 
 	@Override
@@ -96,8 +95,10 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 	}
 
 	@Override
-	public void createNewStock(Stock stock) {
+	public void createNewTrack(Train train) {
 		throw new UnsupportedOperationException("method not create");
 	}
+	
+	
 
 }

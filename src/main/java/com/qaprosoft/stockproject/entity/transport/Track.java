@@ -1,4 +1,4 @@
-package com.qaprosoft.entity.transport;
+package com.qaprosoft.stockproject.entity.transport;
 
 public class Track extends AbstractTransport{
 

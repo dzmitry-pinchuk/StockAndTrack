@@ -1,4 +1,4 @@
-package com.qaprosoft.dao;
+package com.qaprosoft.stockproject.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qaprosoft.connectionPool.ConnectionPool;
+import com.qaprosoft.stockproject.connectionPool.ConnectionPool;
 
 public class JDBCAbstractDAO {
 

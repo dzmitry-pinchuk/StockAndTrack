@@ -1,8 +1,8 @@
-package com.qaprosoft.dao;
+package com.qaprosoft.stockproject.dao;
 
 import java.util.ArrayList;
 
-import com.qaprosoft.entity.transport.Track;
+import com.qaprosoft.stockproject.entity.transport.Track;
 
 public interface ITrackDAO {
 

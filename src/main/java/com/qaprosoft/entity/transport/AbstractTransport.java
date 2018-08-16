@@ -5,7 +5,7 @@ import com.qaprosoft.entity.TypeOfTransport;
 
 public abstract class AbstractTransport extends AbstractEntity {
 	
-	private Integer maxÑarryingÑapacity;
+	private Integer maxCarryingCapacity;
 //	 C c
 	private Integer maxPrice;
 	private String name;
@@ -18,10 +18,10 @@ public abstract class AbstractTransport extends AbstractEntity {
 		return maxPrice;
 	}
 	public Integer getMaxÑarryingÑapacity() {
-		return maxÑarryingÑapacity;
+		return maxCarryingCapacity;
 	}
 	public void setMaxÑarryingÑapacity(Integer maxÑarryingÑapacity) {
-		this.maxÑarryingÑapacity = maxÑarryingÑapacity;
+		this.maxCarryingCapacity = maxÑarryingÑapacity;
 	}
 	public void setMaxPrice(Integer maxPrice) {
 		this.maxPrice = maxPrice;
@@ -40,7 +40,7 @@ public abstract class AbstractTransport extends AbstractEntity {
 	}
 	@Override
 	public String toString() {
-		return "AbstractTransport [ id= " + getId() + ", maxÑarryingÑapacity=" + maxÑarryingÑapacity + ", maxPrice=" + maxPrice + ", name=" + name + ", type="
+		return "AbstractTransport [ id= " + getId() + ", maxÑarryingÑapacity=" + maxCarryingCapacity + ", maxPrice=" + maxPrice + ", name=" + name + ", type="
 				+ type + "]";
 	}
 

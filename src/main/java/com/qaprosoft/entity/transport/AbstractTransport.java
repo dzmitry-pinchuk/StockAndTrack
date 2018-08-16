@@ -17,11 +17,11 @@ public abstract class AbstractTransport extends AbstractEntity {
 	public Integer getMaxPrice() {
 		return maxPrice;
 	}
-	public Integer getMaxÑarryingÑapacity() {
+	public Integer getMaxCarryingCapacity() {
 		return maxCarryingCapacity;
 	}
-	public void setMaxÑarryingÑapacity(Integer maxÑarryingÑapacity) {
-		this.maxCarryingCapacity = maxÑarryingÑapacity;
+	public void setMaxÑarryingÑapacity(Integer maxCarryingCapacity) {
+		this.maxCarryingCapacity = maxCarryingCapacity;
 	}
 	public void setMaxPrice(Integer maxPrice) {
 		this.maxPrice = maxPrice;
@@ -40,7 +40,7 @@ public abstract class AbstractTransport extends AbstractEntity {
 	}
 	@Override
 	public String toString() {
-		return "AbstractTransport [ id= " + getId() + ", maxÑarryingÑapacity=" + maxCarryingCapacity + ", maxPrice=" + maxPrice + ", name=" + name + ", type="
+		return "AbstractTransport [ id= " + getId() + ", maxCarryingCapacity=" + maxCarryingCapacity + ", maxPrice=" + maxPrice + ", name=" + name + ", type="
 				+ type + "]";
 	}
 

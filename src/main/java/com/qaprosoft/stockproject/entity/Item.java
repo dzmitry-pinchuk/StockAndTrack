@@ -5,6 +5,11 @@ public class Item extends AbstractEntity {
     private String name;
     private Integer weight;
     private Integer price;
+    
+    
+    public Item() {
+	super();
+    }
 
     public Item(String name, Integer weight, Integer price) {
 	super();

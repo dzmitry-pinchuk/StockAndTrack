@@ -19,9 +19,9 @@ public class TrainDAO extends JDBCAbstractDAO implements ITrainDAO{
 	
 	private static Logger logger = LogManager.getLogger();
 
-	public static final String SQL_SELECT_ALL_TRACK = "SELECT * FROM sat.train t LEFT JOIN sat.transport tr ON t.transport_id=tr.id";
-	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.tracks t LEFT JOIN sat.transport tr ON t.transport_id=tr.id WHERE id=?";
-	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.tracks WHERE id = ?";
+	public static final String SQL_SELECT_ALL_TRACK = "SELECT * FROM sat.trains t LEFT JOIN sat.transport tr ON t.transport_id=tr.id";
+	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.trains t LEFT JOIN sat.transport tr ON t.transport_id=tr.id WHERE id=?";
+	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.trains WHERE id = ?";
 
 	@Override
 	public ArrayList<Train> getAll() {
@@ -63,7 +63,7 @@ public class TrainDAO extends JDBCAbstractDAO implements ITrainDAO{
 				break;
 			}
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not createObject: " + e);
 		}
 		return train;
 	}
@@ -91,7 +91,17 @@ public class TrainDAO extends JDBCAbstractDAO implements ITrainDAO{
 
 	@Override
 	public void deleteById(Long id) {
-		throw new UnsupportedOperationException("method not create");
+		Connection conn = getConnection();
+		PreparedStatement ps = null;
+		try {
+			ps = conn.prepareStatement(SQL_DELETE_BY_ID);
+			ps.setLong(1, id);
+			ps.execute();
+		} catch (SQLException e) {
+			logger.log(Level.ERROR, "SQLException. Can not write from field: " + e);
+		} finally {
+			endOperation(ps, conn);
+		}
 	}
 
 	@Override

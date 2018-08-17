@@ -17,16 +17,16 @@ import com.qaprosoft.stockproject.entity.TypeOfTransport;
 
 public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 
-	private static Logger logger = LogManager.getLogger();
+	private static final Logger logger = LogManager.getLogger();
 
 	public static final String SQL_SELECT_ALL_ITEMS = "SELECT * FROM sat.stocks";
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.stocks WHERE id=?";
 	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.stocks WHERE id = ?";
 	public static final String SQL_CREATE_NEW_ITEM = "INSERT INTO sat.stocks (`name`, `types_of_transports_id`) VALUES (?,?)";
 	public static final String SQL_SELECT_TYPES_OF_TRANSPORT_BY_STOCK_ID = "SELECT * FROM sat.types_of_transports_has_stocks where stocks_id = ?";
+
 	
-	
-	
+
 	@Override
 	public ArrayList<Stock> getAll() {
 		ArrayList<Stock> allStocks = new ArrayList<>();
@@ -41,7 +41,7 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 				allStocks.add(createObject(rs));
 			}
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not getAll: " + e);
 		} finally {
 			endOperation(ps, conn, rs);
 		}
@@ -54,7 +54,7 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 			stock.setId(rs.getLong("id"));
 			stock.setTypes(getTypesByStockId(rs.getLong("id")));
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not createObject: " + e);
 		}
 		return stock;
 	}
@@ -73,7 +73,7 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 			rs.next();
 			stock = createObject(rs);
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not getById: " + e);
 		} finally {
 			endOperation(ps, conn, rs);
 		}
@@ -89,15 +89,16 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 	public void createNewStock(Stock stock) {
 		throw new UnsupportedOperationException("method not create");
 	}
-	
+
 	public ArrayList<TypeOfTransport> getTypesByStockId(Long id) {
-		ArrayList<TypeOfTransport> types = null;
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		ArrayList<TypeOfTransport> types = new ArrayList<>();
 		try {
 			conn = getConnection();
 			ps = conn.prepareStatement(SQL_SELECT_TYPES_OF_TRANSPORT_BY_STOCK_ID);
+			ps.setLong(1, id);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				switch (rs.getInt("types_of_transports_id")) {
@@ -113,7 +114,7 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 				}
 			}
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not getTypesByStockId: " + e);
 		} finally {
 			endOperation(ps, conn, rs);
 		}

@@ -16,14 +16,13 @@ import com.qaprosoft.stockproject.entity.TypeOfTransport;
 import com.qaprosoft.stockproject.entity.transport.Track;
 
 public class TrackDAO extends JDBCAbstractDAO implements ITrackDAO {
-	
+
 	private static Logger logger = LogManager.getLogger();
 
 	public static final String SQL_SELECT_ALL_TRACK = "SELECT * FROM sat.tracks t LEFT JOIN sat.transport tr ON t.transport_id=tr.id";
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.tracks t LEFT JOIN sat.transport tr ON t.transport_id=tr.id WHERE id=?";
 	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.tracks WHERE id = ?";
 //	public static final String SQL_CREATE_NEW_TRACK = "INSERT INTO sat.stocks (`name`, `types_of_transports_id`) VALUES (?,?)";
-
 
 	@Override
 	public ArrayList<Track> getAll() {
@@ -67,8 +66,8 @@ public class TrackDAO extends JDBCAbstractDAO implements ITrackDAO {
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
 		}
-	return track;
-}
+		return track;
+	}
 
 	@Override
 	public Track getById(Long id) {
@@ -93,7 +92,17 @@ public class TrackDAO extends JDBCAbstractDAO implements ITrackDAO {
 
 	@Override
 	public void deleteById(Long id) {
-		throw new UnsupportedOperationException("method not create");
+		Connection conn = getConnection();
+		PreparedStatement ps = null;
+		try {
+			ps = conn.prepareStatement(SQL_DELETE_BY_ID);
+			ps.setLong(1, id);
+			ps.execute();
+		} catch (SQLException e) {
+			logger.log(Level.ERROR, "SQLException. Can not write from field: " + e);
+		} finally {
+			endOperation(ps, conn);
+		}
 	}
 
 	@Override

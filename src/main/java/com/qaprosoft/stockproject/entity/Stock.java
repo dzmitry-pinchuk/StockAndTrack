@@ -6,14 +6,14 @@ public class Stock extends AbstractEntity {
 
 	private ArrayList<StockHasItem> items;
 	private ArrayList<TypeOfTransport> types;
-	
+
 //	1 - auto
 //	2 - train
-	
+
 	public ArrayList<StockHasItem> getItems() {
 		return items;
 	}
-	
+
 	public ArrayList<TypeOfTransport> getTypes() {
 		return types;
 	}

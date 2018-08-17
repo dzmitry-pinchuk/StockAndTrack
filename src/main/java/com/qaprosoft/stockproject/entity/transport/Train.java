@@ -11,6 +11,12 @@ public class Train extends AbstractTransport{
 	public void setNumberOfWagons(int numberOfWagons) {
 		this.numberOfWagons = numberOfWagons;
 	}
+
+	@Override
+	public String toString() {
+		return "Train [numberOfWagons=" + numberOfWagons + super.toString()+ "]";
+	}
+	
 	
 	
 	

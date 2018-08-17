@@ -1,6 +1,6 @@
 package com.qaprosoft.stockproject.entity.transport;
 
-public class Track extends AbstractTransport{
+public class Track extends AbstractTransport {
 
 	private String color;
 
@@ -11,8 +11,10 @@ public class Track extends AbstractTransport{
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Track [color=" + color + super.toString() + "]";
+	}
+
 }

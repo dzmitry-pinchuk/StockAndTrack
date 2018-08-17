@@ -12,7 +12,7 @@ public interface IItemDAO {
 	
 	public void deleteById(Long id);
 	
-	public void createNewItem(Item item);
+	public Item createNewItem(Item item);
 	
 
 }

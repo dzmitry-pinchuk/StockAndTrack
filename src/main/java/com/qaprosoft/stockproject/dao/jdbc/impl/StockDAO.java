@@ -23,7 +23,10 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.stocks WHERE id=?";
 	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.stocks WHERE id = ?";
 	public static final String SQL_CREATE_NEW_ITEM = "INSERT INTO sat.stocks (`name`, `types_of_transports_id`) VALUES (?,?)";
-
+	public static final String SQL_SELECT_TYPES_OF_TRANSPORT_BY_STOCK_ID = "SELECT * FROM sat.types_of_transports_has_stocks where stocks_id = ?";
+	
+	
+	
 	@Override
 	public ArrayList<Stock> getAll() {
 		ArrayList<Stock> allStocks = new ArrayList<>();
@@ -49,20 +52,7 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 		Stock stock = new Stock();
 		try {
 			stock.setId(rs.getLong("id"));
-			switch (rs.getInt("types_of_transports_id")) {
-			case 1:
-				stock.setType(TypeOfTransport.FOR_TRACK);
-				break;
-			case 2:
-				stock.setType(TypeOfTransport.FOR_TRAIN);
-				break;
-			case 3:
-				stock.setType(TypeOfTransport.FOR_ALL);
-				break;
-			default:
-				logger.log(Level.ERROR, "Can not read type");
-				break;
-			}
+			stock.setTypes(getTypesByStockId(rs.getLong("id")));
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
 		}
@@ -98,6 +88,36 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 	@Override
 	public void createNewStock(Stock stock) {
 		throw new UnsupportedOperationException("method not create");
+	}
+	
+	public ArrayList<TypeOfTransport> getTypesByStockId(Long id) {
+		ArrayList<TypeOfTransport> types = null;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			ps = conn.prepareStatement(SQL_SELECT_TYPES_OF_TRANSPORT_BY_STOCK_ID);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				switch (rs.getInt("types_of_transports_id")) {
+				case 1:
+					types.add(TypeOfTransport.FOR_TRACK);
+					break;
+				case 2:
+					types.add(TypeOfTransport.FOR_TRAIN);
+					break;
+				default:
+					logger.log(Level.ERROR, "Can not read type");
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
+		} finally {
+			endOperation(ps, conn, rs);
+		}
+		return types;
 	}
 
 }

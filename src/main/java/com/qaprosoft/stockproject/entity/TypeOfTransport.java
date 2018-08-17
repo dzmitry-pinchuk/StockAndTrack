@@ -2,7 +2,7 @@ package com.qaprosoft.stockproject.entity;
 
 public enum TypeOfTransport {
 	
-	FOR_TRACK(1), FOR_TRAIN(2), FOR_ALL(3);
+	FOR_TRACK(1), FOR_TRAIN(2);
 	
 	private int id;
 	

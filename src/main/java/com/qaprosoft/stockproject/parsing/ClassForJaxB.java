@@ -9,6 +9,8 @@ import com.qaprosoft.stockproject.entity.Stock;
 import com.qaprosoft.stockproject.entity.transport.Track;
 import com.qaprosoft.stockproject.entity.transport.Train;
 import com.qaprosoft.stockproject.service.StockService;
+import com.qaprosoft.stockproject.service.TrackService;
+import com.qaprosoft.stockproject.service.TrainService;
 
 public class ClassForJaxB {
 	
@@ -23,11 +25,17 @@ public class ClassForJaxB {
 		StockService ss = new StockService();
 		this.stocks = ss.getAllStocks();
 		
-		TrackDAO tDAO = new TrackDAO();
-		this.tracks = tDAO.getAll();
+		TrackService ts = new TrackService();
+		this.tracks = ts.getAll();
 		
-		TrainDAO trDAO = new TrainDAO();
-		this.trains = trDAO.getAll();
+//		TrackDAO tDAO = new TrackDAO();
+//		this.tracks = tDAO.getAll();
+		
+		TrainService trs = new TrainService();
+		this.trains = trs.getAll();
+		
+//		TrainDAO trDAO = new TrainDAO();
+//		this.trains = trDAO.getAll();
 		
 	}
 

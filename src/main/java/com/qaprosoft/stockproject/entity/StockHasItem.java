@@ -5,17 +5,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class StockHasItem extends AbstractEntity {
 
 	@JsonIgnore
-	private Stock stock;
+//	private Stock stock;
+	private int stockId;
 	private Item item;
 	private Integer quantity;
 
-	public Stock getStock() {
-		return stock;
-	}
+//	public Stock getStock() {
+//		return stock;
+//	}
 
-	public void setStock(Stock stock) {
-		this.stock = stock;
-	}
+//	public void setStock(Stock stock) {
+//		this.stock = stock;
+//	}
 
 	public Item getItem() {
 		return item;
@@ -35,7 +36,9 @@ public class StockHasItem extends AbstractEntity {
 
 	@Override
 	public String toString() {
-		return "StockHasItem [stock=" + stock + ", item=" + item + ", quantity=" + quantity + "]";
+		return "StockHasItem ["
+//				+ "stock=" + stock + ", "
+						+ "item=" + item + ", quantity=" + quantity + "]";
 	}
 
 }

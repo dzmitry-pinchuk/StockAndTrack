@@ -21,8 +21,6 @@ public class JaxonParser {
 	public void writeToJson() {
 		ClassForJaxB temp = new ClassForJaxB();
 		try {
-//			om.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-
 			om.writeValue(new File(PATH), temp);
 		} catch (JsonGenerationException e) {
 			logger.log(Level.ERROR, "JsonGenerationException: " + e);

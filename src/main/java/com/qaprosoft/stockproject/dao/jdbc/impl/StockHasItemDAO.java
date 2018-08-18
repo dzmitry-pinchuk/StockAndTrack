@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 import com.qaprosoft.stockproject.dao.IStockHasItemDAO;
 import com.qaprosoft.stockproject.dao.JDBCAbstractDAO;
 import com.qaprosoft.stockproject.entity.Item;
-import com.qaprosoft.stockproject.entity.Stock;
+//import com.qaprosoft.stockproject.entity.Stock;
 import com.qaprosoft.stockproject.entity.StockHasItem;
 
 public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO {
@@ -40,7 +40,7 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 				stockHasItem.add(createObject(rs));
 			}
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not getItemAndQuantityByStockId: " + e);
 		} finally {
 			endOperation(ps, conn, rs);
 		}
@@ -55,22 +55,23 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 			Item item = new Item();
 			item.setId(rs.getLong("items_id"));
 			shi.setItem(item);
-			Stock stock = new Stock();
-			stock.setId(rs.getLong("stocks_id"));
-			shi.setStock(stock);
+//			Stock stock = new Stock();
+//			stock.setId(rs.getLong("stocks_id"));
+//			shi.setStock(stock);
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not read from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not createObject: " + e);
 		}
 		return shi;
 	}
 
 	@Override
-	public StockHasItem insertNewItemInStock(StockHasItem shi) {
+	public StockHasItem insertNewItemInStock(Long stockID, StockHasItem shi) {
 		Connection conn = getConnection();
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(SQL_INSERT_NEW_ITEM_IN_STOCK);
-			ps.setLong(1, shi.getStock().getId());
+//			ps.setLong(1, shi.getStock().getId());
+			ps.setLong(1, stockID);
 			ps.setLong(2, shi.getItem().getId());
 			ps.setLong(3, shi.getQuantity());
 			ps.execute();
@@ -84,12 +85,13 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 	}
 
 	@Override
-	public void updateItemInStock(StockHasItem shi) {
+	public void updateItemInStock(Long stockID, StockHasItem shi) {
 		Connection conn = getConnection();
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(SQL_UPDATE_QUANTITY);
-			ps.setLong(2, shi.getStock().getId());
+//			ps.setLong(2, shi.getStock().getId());
+			ps.setLong(2, stockID);
 			ps.setLong(3, shi.getItem().getId());
 			ps.setLong(1, shi.getQuantity());
 			ps.execute();

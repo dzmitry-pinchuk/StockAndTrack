@@ -14,7 +14,6 @@ public class ClassForJaxB {
 	private ArrayList<Stock> stocks;
 	private ArrayList<Track> tracks;
 	private ArrayList<Train> trains;
-
 	
 	public ClassForJaxB() {
 		StockDAO sDAO = new StockDAO();
@@ -28,36 +27,29 @@ public class ClassForJaxB {
 		
 	}
 
-
 	public ArrayList<Stock> getStocks() {
 		return stocks;
 	}
-
 
 	public void setStocks(ArrayList<Stock> stocks) {
 		this.stocks = stocks;
 	}
 
-
 	public ArrayList<Track> getTracks() {
 		return tracks;
 	}
-
 
 	public void setTracks(ArrayList<Track> tracks) {
 		this.tracks = tracks;
 	}
 
-
 	public ArrayList<Train> getTrains() {
 		return trains;
 	}
 
-
 	public void setTrains(ArrayList<Train> trains) {
 		this.trains = trains;
 	}
-
 
 	@Override
 	public String toString() {

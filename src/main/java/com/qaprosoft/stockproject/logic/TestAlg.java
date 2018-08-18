@@ -11,29 +11,29 @@ import com.qaprosoft.stockproject.entity.transport.Train;
 
 public class TestAlg {
 
-    private static Logger logger = LogManager.getLogger();
+	private static Logger logger = LogManager.getLogger();
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	List<Item> items = new ArrayList<>();
-	Train train = new Train();
-	train.setMaxCarryingCapacity(8);
-	items.add(new Item("Table", 1, 600));
-	items.add(new Item("Umbrella", 2, 5000));
-	items.add(new Item("Cat", 4, 1500));
-	items.add(new Item("Ball", 2, 40000));
-	items.add(new Item("Chair", 1, 500));
+		List<Item> items = new ArrayList<>();
+		Train train = new Train();
+		train.setMaxCarryingCapacity(8);
+		items.add(new Item("Table", 1, 600));
+		items.add(new Item("Umbrella", 2, 5000));
+		items.add(new Item("Cat", 4, 1500));
+		items.add(new Item("Ball", 2, 40000));
+		items.add(new Item("Chair", 1, 500));
 
-	logger.info("1");
+		logger.info("1");
 
-	AlgorithmforBestLoad algorithmforBestLoad = new AlgorithmforBestLoad();
+		AlgorithmforBestLoad algorithmforBestLoad = new AlgorithmforBestLoad();
 
-	algorithmforBestLoad.makeAllSets(items, train);
-	logger.info(algorithmforBestLoad.getBestLoadPrice());
+		algorithmforBestLoad.makeAllSets(items, train);
+		logger.info(algorithmforBestLoad.getBestLoadPrice());
 
-	List<Item> solve = algorithmforBestLoad.getBestItemLoad();
-	System.out.println(solve);
+		List<Item> solve = algorithmforBestLoad.getBestItemLoad();
+		System.out.println(solve);
 
-    }
+	}
 
 }

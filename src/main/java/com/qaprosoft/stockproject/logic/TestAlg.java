@@ -29,8 +29,7 @@ public class TestAlg {
 		AlgorithmforBestLoad algorithmforBestLoad = new AlgorithmforBestLoad();
 
 		algorithmforBestLoad.makeAllSets(items, train);
-		logger.info(algorithmforBestLoad.getBestLoadPrice());
-
+		logger.info(algorithmforBestLoad.getBestLoadPrice());		
 		List<Item> solve = algorithmforBestLoad.getBestItemLoad();
 		System.out.println(solve);
 

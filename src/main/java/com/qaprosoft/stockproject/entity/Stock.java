@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Stock extends AbstractEntity {
 
+	private String name;
 	private ArrayList<StockHasItem> items;
 	private ArrayList<TypeOfTransport> types;
 
@@ -12,6 +13,14 @@ public class Stock extends AbstractEntity {
 
 	public ArrayList<StockHasItem> getItems() {
 		return items;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public ArrayList<TypeOfTransport> getTypes() {
@@ -28,7 +37,7 @@ public class Stock extends AbstractEntity {
 
 	@Override
 	public String toString() {
-		return "Stock [ id " + getId() + ", types=" + types + ", items=" + items + "]";
+		return "Stock [ id " + getId() + ", name=" + name + ", types=" + types + ", items=" + items + "]";
 	}
 
 }

@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 import com.qaprosoft.stockproject.dao.IStockDAO;
 import com.qaprosoft.stockproject.dao.JDBCAbstractDAO;
 import com.qaprosoft.stockproject.entity.Stock;
+import com.qaprosoft.stockproject.entity.StockHasItem;
 import com.qaprosoft.stockproject.entity.TypeOfTransport;
 
 public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
@@ -24,7 +25,6 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.stocks WHERE id = ?";
 	public static final String SQL_CREATE_NEW_ITEM = "INSERT INTO sat.stocks (`name`, `types_of_transports_id`) VALUES (?,?)";
 	public static final String SQL_SELECT_TYPES_OF_TRANSPORT_BY_STOCK_ID = "SELECT * FROM sat.types_of_transports_has_stocks where stocks_id = ?";
-
 	
 
 	@Override
@@ -50,8 +50,10 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 
 	private Stock createObject(ResultSet rs) {
 		Stock stock = new Stock();
+		ArrayList<StockHasItem> items = new ArrayList<>();
 		try {
 			stock.setId(rs.getLong("id"));
+			stock.setName(rs.getString("name"));
 			stock.setTypes(getTypesByStockId(rs.getLong("id")));
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not createObject: " + e);
@@ -90,7 +92,7 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 		throw new UnsupportedOperationException("method not create");
 	}
 
-	public ArrayList<TypeOfTransport> getTypesByStockId(Long id) {
+	private ArrayList<TypeOfTransport> getTypesByStockId(Long id) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

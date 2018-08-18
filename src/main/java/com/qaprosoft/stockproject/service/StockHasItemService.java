@@ -1,17 +1,33 @@
 package com.qaprosoft.stockproject.service;
 
-import com.qaprosoft.stockproject.dao.jdbc.impl.StockDAO;
-import com.qaprosoft.stockproject.entity.Stock;
+import java.util.ArrayList;
+
+import com.qaprosoft.stockproject.dao.jdbc.impl.StockHasItemDAO;
+import com.qaprosoft.stockproject.entity.StockHasItem;
 
 public class StockHasItemService {
 	
-	StockDAO sDAO = new StockDAO();
+	private StockHasItemDAO shiDAO = new StockHasItemDAO();
 	
-	
-	public Stock getAll() {
-		sDAO.getAll();
+	public ArrayList<StockHasItem> getItemAndQuantityByStockId(Long id) {
+		ArrayList<StockHasItem> stockHasItem = shiDAO.getItemAndQuantityByStockId(id);
 		
-		return null;
+		
+		
+		
+		return stockHasItem;
 	}
-
+	
+	public StockHasItem insertNewItemInStock(StockHasItem shi) {
+		shi = shiDAO.insertNewItemInStock(shi);
+		return shi;
+	}
+	
+	public void updateItemInStock(StockHasItem shi) {
+		shiDAO.updateItemInStock(shi);
+	}
+	
+	public void deleteItemInStock(StockHasItem shi) {
+		shiDAO.deleteItemInStock(shi);
+	}
 }

@@ -19,24 +19,16 @@ public class ClassForJaxB {
 	private ArrayList<Train> trains;
 	
 	public ClassForJaxB() {
-//		StockDAO sDAO = new StockDAO();
-//		this.stocks = sDAO.getAll();
-		
+
 		StockService ss = new StockService();
 		this.stocks = ss.getAllStocks();
 		
 		TrackService ts = new TrackService();
 		this.tracks = ts.getAll();
-		
-//		TrackDAO tDAO = new TrackDAO();
-//		this.tracks = tDAO.getAll();
-		
+
 		TrainService trs = new TrainService();
 		this.trains = trs.getAll();
-		
-//		TrainDAO trDAO = new TrainDAO();
-//		this.trains = trDAO.getAll();
-		
+	
 	}
 
 	public ArrayList<Stock> getStocks() {

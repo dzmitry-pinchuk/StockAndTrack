@@ -50,7 +50,7 @@ public abstract class AbstractTransport extends AbstractEntity {
 	@Override
 	public String toString() {
 		return "AbstractTransport [ id= " + getId() + ", maxCarryingCapacity=" + maxCarryingCapacity + ", maxPrice="
-				+ maxPrice + ", name=" + name + ", type=" + type + "]";
+				+ maxPrice + ", name=" + name + "]";
 	}
 
 }

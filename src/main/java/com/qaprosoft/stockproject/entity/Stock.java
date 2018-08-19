@@ -37,7 +37,7 @@ public class Stock extends AbstractEntity {
 
 	@Override
 	public String toString() {
-		return "Stock [ id " + getId() + ", name=" + name + ", types=" + types + ", items=" + items + "]";
+		return "\n Stock [ id= " + getId() + ", name=" + name + ", types=" + types + ", items=" + items + "] ";
 	}
 
 }

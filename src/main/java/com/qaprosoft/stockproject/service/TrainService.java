@@ -7,22 +7,25 @@ import com.qaprosoft.stockproject.entity.transport.Train;
 
 public class TrainService {
 
-	private TrainDAO trDAO = new TrainDAO();
+    private TrainDAO trDAO;
 
-	public ArrayList<Train> getAll() {
-		ArrayList<Train> allTrains = trDAO.getAll();
-		return allTrains;
-	}
+    public TrainService() {
+	super();
+	this.trDAO = new TrainDAO();
+    }
 
-	public Train getById(Long id) {
-		Train train = trDAO.getById(id);
-		return train;
-	}
+    public ArrayList<Train> getAll() {
+	ArrayList<Train> allTrains = trDAO.getAll();
+	return allTrains;
+    }
 
-	public void deleteById(Long id) {
-		trDAO.deleteById(id);
-	}
-	
-	
-	
+    public Train getById(Long id) {
+	Train train = trDAO.getById(id);
+	return train;
+    }
+
+    public void deleteById(Long id) {
+	trDAO.deleteById(id);
+    }
+
 }

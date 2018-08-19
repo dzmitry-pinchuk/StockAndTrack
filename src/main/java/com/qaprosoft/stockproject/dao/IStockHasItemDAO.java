@@ -6,12 +6,18 @@ import com.qaprosoft.stockproject.entity.StockHasItem;
 
 public interface IStockHasItemDAO {
 
-	public ArrayList<StockHasItem> getItemAndQuantityByStockId(Long id);
+    ArrayList<StockHasItem> getItemAndQuantityByStockId(Long id);
 
-	public StockHasItem insertNewItemInStock(Long stockID, StockHasItem shi);
+    StockHasItem insertNewItemInStock(Long stockID, StockHasItem shi);
 
-	public void updateItemInStock(Long stockID, StockHasItem shi);
+    void updateItemInStock(Long stockID, Long itemId, Integer newCount);
 
-	public void deleteItemInStock(StockHasItem shi);
+    void deleteItemInStock(StockHasItem shi);
+    
+    void deleteItemByStockIdAndItemId(Long stockId, Long itemId);
+    
+    Integer getQuantityByStockAndItem(Long itemId, Long stockId);
+    
+    void  insertNewItemInStockByStockItemAndNumber(Long stockID, Long itemId, Integer quantity);
 
 }

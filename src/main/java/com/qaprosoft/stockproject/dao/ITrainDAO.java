@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import com.qaprosoft.stockproject.entity.transport.Train;
 
 public interface ITrainDAO {
-	
-public ArrayList<Train> getAll();
-	
-	public Train getById(Long id);
-	
-	public void deleteById(Long id);
-	
-	public void createNewTrack(Train train);
+
+    ArrayList<Train> getAll();
+
+    Train getById(Long id);
+
+    void deleteById(Long id);
+
+    void createNewTrack(Train train);
 
 }

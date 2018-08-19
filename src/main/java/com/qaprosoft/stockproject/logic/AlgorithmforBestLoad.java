@@ -37,48 +37,47 @@ public class AlgorithmforBestLoad {
 
     }
 
-    private void checkSet(List<Item> items, AbstractTransport transport) {
+    private void checkSet(List<Item> items, Integer maxWeigth) {
 
 	if (bestItemLoad == null) {
-	    if (calculateWeigth(items) <= transport.getMaxCarryingCapacity()) {
+	    if (calculateWeigth(items) <= maxWeigth) {
 		bestItemLoad = items;
 		bestLoadPrice = calculatePrice(items);
 	    }
 	} else {
-	    if (calculateWeigth(items) <= transport.getMaxCarryingCapacity() && calculatePrice(items) > bestLoadPrice) {
+	    if (calculateWeigth(items) <= maxWeigth && calculatePrice(items) > bestLoadPrice) {
 		bestItemLoad = items;
 		bestLoadPrice = calculatePrice(items);
 	    }
 	}
     }
 
-    public void makeAllSets(List<Item> items, AbstractTransport transport) {
+    public void makeAllSets(List<Item> items, Integer maxWeigth) {
 	if (items.size() > 0) {
-	    checkSet(items, transport);
+	    checkSet(items, maxWeigth);
 	}
 	for (int i = 0; i < items.size(); i++) {
 	    List<Item> newSet = new ArrayList<Item>(items);
 	    // List<Item> newSet = new List<Item>(items);
 	    // newSet.RemoveAt(i);
 	    newSet.remove(i);
-	    makeAllSets(newSet, transport);
+	    makeAllSets(newSet, maxWeigth);
 	}
 
     }
 
-    public List<Item> getBestItemLoad() {
-	return bestItemLoad;
-    }
+    // public List<Item> getBestItemLoad() {
+    // return bestItemLoad;
+    // }
 
     public Integer getBestLoadPrice() {
 	return bestLoadPrice;
     }
 
-     public List<Item> getBestItemLoad(List<Item> items, AbstractTransport
-     transport) {
-     makeAllSets(items, transport);
-     return bestItemLoad;
-     }
+    public List<Item> getBestItemLoad(List<Item> items, Integer maxWeigth) {
+	makeAllSets(items, maxWeigth);
+	return bestItemLoad;
+    }
 
 }
 

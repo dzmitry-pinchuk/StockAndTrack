@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 import com.qaprosoft.stockproject.dao.IStockDAO;
 import com.qaprosoft.stockproject.dao.JDBCAbstractDAO;
 import com.qaprosoft.stockproject.entity.Stock;
-import com.qaprosoft.stockproject.entity.StockHasItem;
+//import com.qaprosoft.stockproject.entity.StockHasItem;
 import com.qaprosoft.stockproject.entity.TypeOfTransport;
 
 public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
@@ -50,7 +50,7 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 
 	private Stock createObject(ResultSet rs) {
 		Stock stock = new Stock();
-		ArrayList<StockHasItem> items = new ArrayList<>();
+//		ArrayList<StockHasItem> items = new ArrayList<>();
 		try {
 			stock.setId(rs.getLong("id"));
 			stock.setName(rs.getString("name"));

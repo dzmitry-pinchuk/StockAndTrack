@@ -14,7 +14,7 @@ public class Track extends AbstractTransport {
 
 	@Override
 	public String toString() {
-		return "\n Track [color=" + color + super.toString() + "]\n";
+		return "\n Track [color=" + color + super.toString() + "]";
 	}
 
 }

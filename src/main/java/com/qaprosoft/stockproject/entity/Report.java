@@ -1,6 +1,6 @@
 package com.qaprosoft.stockproject.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.qaprosoft.stockproject.entity.transport.AbstractTransport;
 
@@ -10,7 +10,7 @@ public class Report {
 	private Stock stock2;
 	private int maxPrice;
 	private AbstractTransport transport;
-	private ArrayList<Item> items;
+	private List<Item> items;
 	
 	public int getMaxPrice() {
 		return maxPrice;
@@ -44,11 +44,11 @@ public class Report {
 		this.transport = transport;
 	}
 	
-	public ArrayList<Item> getItems() {
+	public List<Item> getItems() {
 		return items;
 	}
 	
-	public void setItems(ArrayList<Item> items) {
+	public void setItems(List<Item> items) {
 		this.items = items;
 	}
 

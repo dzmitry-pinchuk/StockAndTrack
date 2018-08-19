@@ -41,11 +41,11 @@ public class DemoCallAllMethod {
 		Long stockID2 = scan.nextLong();
 		for (int i = 0; i < stocks.size(); i++) {
 			if (stocks.get(i).getId() == stockID2) {
-				report.setStock1(stocks.get(i));
+				report.setStock2(stocks.get(i));
 			}
 		}
 		
-		if ( stockID1<0 || stockID1>stocks.size() ||  stockID2<0 || stockID2>stocks.size()) {
+		if ( stockID1<0 || stockID1>stocks.size() ||  stockID2<0 || stockID2>stocks.size() || stockID1 == stockID2) {
 			throw new UnsupportedOperationException("You must insert correct value. Try again");
 		}
 		
@@ -75,6 +75,9 @@ public class DemoCallAllMethod {
 				}
 			}		
 			break;
+		
 		}
+
+		DemoLogic.baseLogic(report);
 	}
 }

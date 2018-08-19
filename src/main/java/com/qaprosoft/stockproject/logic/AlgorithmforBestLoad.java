@@ -11,73 +11,73 @@ import com.qaprosoft.stockproject.entity.transport.AbstractTransport;
 
 public class AlgorithmforBestLoad {
 
-    private static Logger logger = LogManager.getLogger();
+	private static Logger logger = LogManager.getLogger();
 
-    private List<Item> bestItemLoad;
-    private Integer bestLoadPrice;
+	private List<Item> bestItemLoad;
+	private Integer bestLoadPrice;
 
-    private Integer calculateWeigth(List<Item> items) {
-	Integer totalItemsWeigth = 0;
+	private Integer calculateWeigth(List<Item> items) {
+		Integer totalItemsWeigth = 0;
 
-	for (Item item : items) {
-	    totalItemsWeigth += item.getWeight();
+		for (Item item : items) {
+			totalItemsWeigth += item.getWeight();
+		}
+
+		return totalItemsWeigth;
 	}
 
-	return totalItemsWeigth;
-    }
+	private Integer calculatePrice(List<Item> items) {
+		Integer totalItemsPrice = 0;
 
-    private Integer calculatePrice(List<Item> items) {
-	Integer totalItemsPrice = 0;
+		for (Item item : items) {
+			totalItemsPrice += item.getPrice();
+		}
 
-	for (Item item : items) {
-	    totalItemsPrice += item.getPrice();
+		return totalItemsPrice;
+
 	}
 
-	return totalItemsPrice;
+	private void checkSet(List<Item> items, Integer maxWeigth) {
 
-    }
-
-    private void checkSet(List<Item> items, Integer maxWeigth) {
-
-	if (bestItemLoad == null) {
-	    if (calculateWeigth(items) <= maxWeigth) {
-		bestItemLoad = items;
-		bestLoadPrice = calculatePrice(items);
-	    }
-	} else {
-	    if (calculateWeigth(items) <= maxWeigth && calculatePrice(items) > bestLoadPrice) {
-		bestItemLoad = items;
-		bestLoadPrice = calculatePrice(items);
-	    }
-	}
-    }
-
-    public void makeAllSets(List<Item> items, Integer maxWeigth) {
-	if (items.size() > 0) {
-	    checkSet(items, maxWeigth);
-	}
-	for (int i = 0; i < items.size(); i++) {
-	    List<Item> newSet = new ArrayList<Item>(items);
-	    // List<Item> newSet = new List<Item>(items);
-	    // newSet.RemoveAt(i);
-	    newSet.remove(i);
-	    makeAllSets(newSet, maxWeigth);
+		if (bestItemLoad == null) {
+			if (calculateWeigth(items) <= maxWeigth) {
+				bestItemLoad = items;
+				bestLoadPrice = calculatePrice(items);
+			}
+		} else {
+			if (calculateWeigth(items) <= maxWeigth && calculatePrice(items) > bestLoadPrice) {
+				bestItemLoad = items;
+				bestLoadPrice = calculatePrice(items);
+			}
+		}
 	}
 
-    }
+	public void makeAllSets(List<Item> items, Integer maxWeigth) {
+		if (items.size() > 0) {
+			checkSet(items, maxWeigth);
+		}
+		for (int i = 0; i < items.size(); i++) {
+			List<Item> newSet = new ArrayList<Item>(items);
+			// List<Item> newSet = new List<Item>(items);
+			// newSet.RemoveAt(i);
+			newSet.remove(i);
+			makeAllSets(newSet, maxWeigth);
+		}
 
-    // public List<Item> getBestItemLoad() {
-    // return bestItemLoad;
-    // }
+	}
 
-    public Integer getBestLoadPrice() {
-	return bestLoadPrice;
-    }
+	// public List<Item> getBestItemLoad() {
+	// return bestItemLoad;
+	// }
 
-    public List<Item> getBestItemLoad(List<Item> items, Integer maxWeigth) {
-	makeAllSets(items, maxWeigth);
-	return bestItemLoad;
-    }
+	public Integer getBestLoadPrice() {
+		return bestLoadPrice;
+	}
+
+	public List<Item> getBestItemLoad(List<Item> items, Integer maxWeigth) {
+		makeAllSets(items, maxWeigth);
+		return bestItemLoad;
+	}
 
 }
 

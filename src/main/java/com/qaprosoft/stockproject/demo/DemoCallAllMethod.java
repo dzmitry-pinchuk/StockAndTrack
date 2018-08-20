@@ -18,7 +18,7 @@ public class DemoCallAllMethod {
 	private static final Logger logger = LogManager.getLogger();
 	private Scanner scan = new Scanner(System.in);
 
-	public void start() {
+	public void makeMagic() {
 		
 		Report report = new Report();
 		ClassForJaxB all = new ClassForJaxB();
@@ -31,7 +31,7 @@ public class DemoCallAllMethod {
 		logger.log(Level.INFO, stocks);
 		logger.log(Level.INFO, "Insert StockID first(1 - " + stocks.size() + "): ");
 		Long stockID1 = scan.nextLong();
-		for (int i = 0; i < stocks.size(); i++) {
+		for (int i = 0; i < stocks.size(); i++) {  //foreach
 			if (stocks.get(i).getId() == stockID1) {
 				report.setStock1(stocks.get(i));
 			}
@@ -39,7 +39,7 @@ public class DemoCallAllMethod {
 
 		logger.log(Level.INFO, "Insert StockID second(1 - " + stocks.size() + "): ");
 		Long stockID2 = scan.nextLong();
-		for (int i = 0; i < stocks.size(); i++) {
+		for (int i = 0; i < stocks.size(); i++) {  //foreach
 			if (stocks.get(i).getId() == stockID2) {
 				report.setStock2(stocks.get(i));
 			}
@@ -59,7 +59,7 @@ public class DemoCallAllMethod {
 			logger.log(Level.INFO, tracks);
 			logger.log(Level.INFO, "Insert TransportID(1 - " + tracks.size() + "): ");
 			int trackID = scan.nextInt();
-			for (int i = 0; i < tracks.size(); i++) {
+			for (int i = 0; i < tracks.size(); i++) {   //foreach
 				if (tracks.get(i).getId() == trackID) {
 					report.setTransport(tracks.get(i));
 				}
@@ -69,7 +69,7 @@ public class DemoCallAllMethod {
 			logger.log(Level.INFO, trains);
 			logger.log(Level.INFO, "Insert TransportID(1 - " + trains.size() + "): ");
 			int trainID = scan.nextInt();
-			for (int i = 0; i < trains.size(); i++) {
+			for (int i = 0; i < trains.size(); i++) {    //foreach
 				if (trains.get(i).getId() == trainID) {
 					report.setTransport(trains.get(i));
 				}

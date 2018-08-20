@@ -56,7 +56,6 @@ public class AlgorithmforBestLoad {
 			// List<Item> newSet = new List<Item>(items);
 			// newSet.RemoveAt(i);
 			newSet.remove(i);
-			System.out.println("zavisaet " + i);
 			makeAllSets(newSet, maxWeigth);
 		}
 	}

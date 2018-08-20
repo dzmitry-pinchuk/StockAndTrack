@@ -54,6 +54,7 @@ public class TransportBestLoadItemsService {
 		AlgorithmforBestLoad algorithmforBestLoad = new AlgorithmforBestLoad();
 		System.out.println("3333 ");
 		System.out.println(items);
+		System.out.println("weight "+ maxWeigtht);
 		algorithmforBestLoad.makeAllSets(items, maxWeigtht);
 //		List<Item> bestLoadList = algorithmforBestLoad.getBestItemLoad(items, maxWeigtht);
 		List<Item> bestLoadList = algorithmforBestLoad.getBestItemLoad();

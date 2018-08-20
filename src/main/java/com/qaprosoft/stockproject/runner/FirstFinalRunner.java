@@ -6,7 +6,7 @@ public class FirstFinalRunner {
 	
 	 public static void main(String[] args) {
 		 DemoCallAllMethod qq = new DemoCallAllMethod();
-			qq.start();
+			qq.makeMagic();
 	 }
 
 }

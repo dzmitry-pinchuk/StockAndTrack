@@ -35,9 +35,10 @@ public class DemoLogic {
 		for (Item item : usedItems) {
 			tempPrice = tempPrice + item.getPrice();
 		}
+		report.setMaxPrice(tempPrice);
 		logger.log(Level.INFO, "Price of item in transport:");
 		logger.log(Level.INFO, "Items in transport:");
-		logger.log(Level.INFO, usedItems);
+		logger.log(Level.INFO, report);
 		logger.log(Level.INFO, "All operations completed");
 
 	}

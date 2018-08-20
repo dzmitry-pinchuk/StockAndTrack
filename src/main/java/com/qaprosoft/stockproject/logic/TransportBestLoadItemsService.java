@@ -43,19 +43,21 @@ public class TransportBestLoadItemsService {
 	
 	public boolean checkTrasportForStock(Report report) { //!!!!!!!!!!!!!!
 		TypeOfTransport typeOfTransport = report.getTransport().getType();
-		
 		List<TypeOfTransport> list1 = report.getStock1().getTypes();
 		List<TypeOfTransport> list2 = report.getStock2().getTypes();
-		System.out.println("1111111111");
 		return list1.contains(typeOfTransport) && list2.contains(typeOfTransport);
 	}
 
-	public List<Item> transportItems(Report report) {
+	public List<Item> transportItems(Report report) { //зависает
 		List<Item> items = itemService.getItemsByStockId(report.getStock1().getId());
 		Integer maxWeigtht =report.getTransport().getMaxCarryingCapacity();
 		AlgorithmforBestLoad algorithmforBestLoad = new AlgorithmforBestLoad();
-		List<Item> bestLoadList = algorithmforBestLoad.getBestItemLoad(items, maxWeigtht);
-		
+		System.out.println("3333 ");
+		System.out.println(items);
+		algorithmforBestLoad.makeAllSets(items, maxWeigtht);
+//		List<Item> bestLoadList = algorithmforBestLoad.getBestItemLoad(items, maxWeigtht);
+		List<Item> bestLoadList = algorithmforBestLoad.getBestItemLoad();
+		System.out.println("121212");
 		return bestLoadList;
 //		for (Item item : bestLoadList) {
 //			// update in from

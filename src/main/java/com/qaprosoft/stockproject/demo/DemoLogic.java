@@ -20,8 +20,10 @@ public class DemoLogic {
 
 		TransportBestLoadItemsService tblis = new TransportBestLoadItemsService();
 		
-		if (tblis.checkTrasportForStock(report) == true) {
+		if (tblis.checkTrasportForStock(report)) {
+			System.out.println("22222");
 			usedItems = tblis.transportItems(report);
+			System.out.println("44444");
 		} else {
 			throw new UnsupportedOperationException("This transport can not usen in this stock");
 		}

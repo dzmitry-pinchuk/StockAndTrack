@@ -14,7 +14,7 @@ public class Train extends AbstractTransport{
 
 	@Override
 	public String toString() {
-		return "\n Train [numberOfWagons=" + numberOfWagons + super.toString()+ "]\n";
+		return "\n Train [numberOfWagons=" + numberOfWagons + super.toString()+ "]";
 	}
 	
 	

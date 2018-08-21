@@ -7,6 +7,7 @@ import com.qaprosoft.stockproject.entity.Item;
 
 public class AlgorithmforBestLoad {
 
+
     private List<Item> bestItemsLoadList;
     private int solutionWeight;
     private int bestLoadPrice;
@@ -67,6 +68,8 @@ public class AlgorithmforBestLoad {
     public boolean isCalculated() {
 	return calculated;
     }
+
+
 
 }
 

@@ -8,16 +8,16 @@ public abstract class AbstractTransport extends AbstractEntity {
 
 	private Integer maxCarryingCapacity;
 	@JsonIgnore
-	private Integer maxPrice;
+//	private Integer maxPrice;
 	private String name;
 	private TypeOfTransport type;
 //	1 - auto
 //	2 - train
 //	3 - all
 
-	public Integer getMaxPrice() {
-		return maxPrice;
-	}
+//	public Integer getMaxPrice() {
+//		return maxPrice;
+//	}
 
 	public Integer getMaxCarryingCapacity() {
 		return maxCarryingCapacity;
@@ -27,9 +27,9 @@ public abstract class AbstractTransport extends AbstractEntity {
 		this.maxCarryingCapacity = maxCarryingCapacity;
 	}
 
-	public void setMaxPrice(Integer maxPrice) {
-		this.maxPrice = maxPrice;
-	}
+//	public void setMaxPrice(Integer maxPrice) {
+//		this.maxPrice = maxPrice;
+//	}
 
 	public String getName() {
 		return name;
@@ -49,8 +49,7 @@ public abstract class AbstractTransport extends AbstractEntity {
 
 	@Override
 	public String toString() {
-		return "AbstractTransport [ id= " + getId() + ", maxCarryingCapacity=" + maxCarryingCapacity + ", maxPrice="
-				+ maxPrice + ", name=" + name + "]";
+		return "AbstractTransport [ id= " + getId() + ", maxCarryingCapacity=" + maxCarryingCapacity + ", name=" + name + "]";
 	}
 
 }

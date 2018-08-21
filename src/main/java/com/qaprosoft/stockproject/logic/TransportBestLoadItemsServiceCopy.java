@@ -1,5 +1,6 @@
 package com.qaprosoft.stockproject.logic;
 
+
 import java.util.List;
 
 import com.qaprosoft.stockproject.entity.Item;
@@ -9,17 +10,16 @@ import com.qaprosoft.stockproject.service.StockHasItemService;
 import com.qaprosoft.stockproject.service.StockService;
 import com.qaprosoft.stockproject.service.TrackService;
 
-public class TransportBestLoadItemsService {
+public class TransportBestLoadItemsServiceCopy {
 
     private ItemService itemService;
-
-    // what if TRAIN what to do??????????????
+// for Transport
     private TrackService trackService;
     private StockService stockService;
     // private StockHasItemDAO stockHasItemDAO;
     private StockHasItemService stockHasItemService;
 
-    public TransportBestLoadItemsService() {
+    public TransportBestLoadItemsServiceCopy() {
 	this.itemService = new ItemService();
 	this.trackService = new TrackService();
 	this.stockHasItemService = new StockHasItemService();

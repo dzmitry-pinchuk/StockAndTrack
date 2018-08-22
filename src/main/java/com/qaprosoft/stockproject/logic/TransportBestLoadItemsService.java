@@ -10,10 +10,10 @@ import com.qaprosoft.stockproject.entity.Item;
 import com.qaprosoft.stockproject.entity.Report;
 import com.qaprosoft.stockproject.entity.TypeOfTransport;
 import com.qaprosoft.stockproject.entity.transport.AbstractTransport;
-import com.qaprosoft.stockproject.service.ItemService;
-import com.qaprosoft.stockproject.service.StockHasItemService;
-import com.qaprosoft.stockproject.service.StockService;
-import com.qaprosoft.stockproject.service.TrackService;
+import com.qaprosoft.stockproject.service.impl.ItemService;
+import com.qaprosoft.stockproject.service.impl.StockHasItemService;
+import com.qaprosoft.stockproject.service.impl.StockService;
+import com.qaprosoft.stockproject.service.impl.TrackService;
 
 public class TransportBestLoadItemsService {
     

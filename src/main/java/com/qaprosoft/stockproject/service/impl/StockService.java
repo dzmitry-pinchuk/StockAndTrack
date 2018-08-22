@@ -1,4 +1,4 @@
-package com.qaprosoft.stockproject.service;
+package com.qaprosoft.stockproject.service.impl;
 
 import java.util.ArrayList;
 
@@ -8,8 +8,9 @@ import com.qaprosoft.stockproject.dao.jdbc.impl.StockHasItemDAO;
 import com.qaprosoft.stockproject.entity.Item;
 import com.qaprosoft.stockproject.entity.Stock;
 import com.qaprosoft.stockproject.entity.StockHasItem;
+import com.qaprosoft.stockproject.service.IStockService;
 
-public class StockService {
+public class StockService implements IStockService{
 
     private StockDAO sDAO;
     private StockHasItemDAO shiDAO;
@@ -21,7 +22,7 @@ public class StockService {
 	this.shiDAO = new StockHasItemDAO();
 	this.iDAO = new ItemDAO();
     }
-
+    @Override
     public Stock getByID(Long id) {
 	Stock stock = sDAO.getById(id);
 	ArrayList<StockHasItem> items = shiDAO.getItemAndQuantityByStockId(id);
@@ -32,7 +33,7 @@ public class StockService {
 	stock.setItems(items);
 	return stock;
     }
-
+    @Override
     public ArrayList<Stock> getAllStocks() {
 	ArrayList<Stock> allStocks = sDAO.getAll();
 	for (Stock stock : allStocks) {
@@ -44,6 +45,25 @@ public class StockService {
 	    stock.setItems(items);
 	}
 	return allStocks;
+    }
+
+    @Override
+    public ArrayList<Stock> getAll() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+
+    @Override
+    public void deleteById(Long id) {
+	// TODO Auto-generated method stub
+	
+    }
+
+    @Override
+    public void createNewStock(Stock stock) {
+	// TODO Auto-generated method stub
+	
     }
 
 }

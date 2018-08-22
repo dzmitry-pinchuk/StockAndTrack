@@ -6,9 +6,9 @@ import com.qaprosoft.stockproject.dao.jdbc.impl.StockHasItemDAO;
 import com.qaprosoft.stockproject.entity.StockHasItem;
 import com.qaprosoft.stockproject.parsing.ClassForJaxB;
 import com.qaprosoft.stockproject.parsing.JaxonParser;
-import com.qaprosoft.stockproject.service.ItemService;
-import com.qaprosoft.stockproject.service.StockHasItemService;
-import com.qaprosoft.stockproject.service.StockService;
+import com.qaprosoft.stockproject.service.impl.ItemService;
+import com.qaprosoft.stockproject.service.impl.StockHasItemService;
+import com.qaprosoft.stockproject.service.impl.StockService;
 
 public class DemoRun {
 

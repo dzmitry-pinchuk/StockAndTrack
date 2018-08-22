@@ -97,7 +97,7 @@ public class ItemDAO extends JDBCAbstractDAO implements IItemDAO {
     }
 
     @Override
-    public Item createNewItem(Item item) {
+    public Item add(Item item) {
 	Connection conn = getConnection();
 	PreparedStatement ps = null;
 	try {

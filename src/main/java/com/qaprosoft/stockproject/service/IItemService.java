@@ -1,20 +1,19 @@
-package com.qaprosoft.stockproject.dao;
+package com.qaprosoft.stockproject.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.qaprosoft.stockproject.entity.Item;
-import com.qaprosoft.stockproject.service.IDefaultService;
 
-public interface IItemDAO {
-
+public interface IItemService {
+    
     ArrayList<Item> getAll();
 
     Item getById(Long id);
 
     void deleteById(Long id);
 
-    Item add(Item item);
+    Item createNewItem(Item item);
 
     List<Item> getItemsByStockId(Long id);
 

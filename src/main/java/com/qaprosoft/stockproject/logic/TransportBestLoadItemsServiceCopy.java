@@ -5,10 +5,10 @@ import java.util.List;
 
 import com.qaprosoft.stockproject.entity.Item;
 import com.qaprosoft.stockproject.entity.TypeOfTransport;
-import com.qaprosoft.stockproject.service.ItemService;
-import com.qaprosoft.stockproject.service.StockHasItemService;
-import com.qaprosoft.stockproject.service.StockService;
-import com.qaprosoft.stockproject.service.TrackService;
+import com.qaprosoft.stockproject.service.impl.ItemService;
+import com.qaprosoft.stockproject.service.impl.StockHasItemService;
+import com.qaprosoft.stockproject.service.impl.StockService;
+import com.qaprosoft.stockproject.service.impl.TrackService;
 
 public class TransportBestLoadItemsServiceCopy {
 
@@ -33,8 +33,10 @@ public class TransportBestLoadItemsServiceCopy {
 
 	List<TypeOfTransport> list1 = stockService.getByID(fromIdStock).getTypes();
 	List<TypeOfTransport> list2 = stockService.getByID(toIdStock).getTypes();
-
+         
 	return list1.contains(typeOfTransport) && list2.contains(typeOfTransport);
+	
+	
     }
 
     public void trasportItems(Long fromIdStock, Long toIdStock, Long idTrasport) {

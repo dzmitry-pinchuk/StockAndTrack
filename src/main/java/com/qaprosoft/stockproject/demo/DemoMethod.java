@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import com.qaprosoft.stockproject.entity.Item;
 import com.qaprosoft.stockproject.entity.Report;
 import com.qaprosoft.stockproject.entity.StockHasItem;
-import com.qaprosoft.stockproject.service.StockHasItemService;
+import com.qaprosoft.stockproject.service.impl.StockHasItemService;
 
 public class DemoMethod {
 

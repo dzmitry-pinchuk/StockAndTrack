@@ -8,9 +8,9 @@ import com.qaprosoft.stockproject.dao.jdbc.impl.TrainDAO;
 import com.qaprosoft.stockproject.entity.Stock;
 import com.qaprosoft.stockproject.entity.transport.Track;
 import com.qaprosoft.stockproject.entity.transport.Train;
-import com.qaprosoft.stockproject.service.StockService;
-import com.qaprosoft.stockproject.service.TrackService;
-import com.qaprosoft.stockproject.service.TrainService;
+import com.qaprosoft.stockproject.service.impl.StockService;
+import com.qaprosoft.stockproject.service.impl.TrackService;
+import com.qaprosoft.stockproject.service.impl.TrainService;
 
 public class ClassForJaxB {
 	

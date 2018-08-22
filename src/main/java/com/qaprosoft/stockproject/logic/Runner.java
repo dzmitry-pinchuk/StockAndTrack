@@ -10,17 +10,23 @@ import com.qaprosoft.stockproject.entity.Item;
 import com.qaprosoft.stockproject.entity.Stock;
 import com.qaprosoft.stockproject.entity.TypeOfTransport;
 import com.qaprosoft.stockproject.entity.transport.Train;
-import com.qaprosoft.stockproject.service.ItemService;
-import com.qaprosoft.stockproject.service.StockService;
+import com.qaprosoft.stockproject.service.impl.ItemService;
+import com.qaprosoft.stockproject.service.impl.StockService;
+import com.qaprosoft.stockproject.service.impl.TrackService;
+import com.qaprosoft.stockproject.service.impl.TrainService;
 
 public class Runner {
  private static Logger logger = LogManager.getLogger();
     
     public static void main(String[] args) {
 	StockService stockService = new StockService();
+	TrainService trainService = new TrainService();
+	TrainService trackService = new TrainService();
 
 	Train train = new Train();
 	Train train1 = new Train();
+	Train train2 =trainService.getById((long) 1);
+	
 
 	train.setType(TypeOfTransport.FOR_TRACK);
 	train1.setType(TypeOfTransport.FOR_TRACK);
@@ -68,6 +74,11 @@ public class Runner {
 
 	logger.info(stock1);
 	logger.info(stock2);
+	logger.info(train2);
+	
+	
+	
+	
 
 	// TransportBestLoadItemsServiceCopy transportBestLoadItemsServiceCopy = new
 	// TransportBestLoadItemsServiceCopy();

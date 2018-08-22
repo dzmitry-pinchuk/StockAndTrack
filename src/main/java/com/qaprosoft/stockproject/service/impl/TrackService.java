@@ -1,11 +1,12 @@
-package com.qaprosoft.stockproject.service;
+package com.qaprosoft.stockproject.service.impl;
 
 import java.util.ArrayList;
 
 import com.qaprosoft.stockproject.dao.jdbc.impl.TrackDAO;
 import com.qaprosoft.stockproject.entity.transport.Track;
+import com.qaprosoft.stockproject.service.ITrackService;
 
-public class TrackService {
+public class TrackService implements ITrackService{
 
     private TrackDAO tDAO;
 
@@ -27,5 +28,11 @@ public class TrackService {
     public void deleteById(Long id) {
 	tDAO.deleteById(id);
     }
+
+    @Override
+    public void createNewTrack(Track track) {
+		
+    }
+    
 
 }

@@ -6,8 +6,8 @@ import com.qaprosoft.stockproject.entity.transport.AbstractTransport;
 
 public class Report {
 	
-	private Stock stock1;
-	private Stock stock2;
+	private Stock stockFrom;
+	private Stock stockTo;
 	private int maxPrice;
 	private AbstractTransport transport;
 	private List<Item> items;
@@ -20,20 +20,20 @@ public class Report {
 		this.maxPrice = maxPrice;
 	}
 
-	public Stock getStock1() {
-		return stock1;
+	public Stock getStockFrom() {
+		return stockFrom;
 	}
 	
-	public void setStock1(Stock stock1) {
-		this.stock1 = stock1;
+	public void setStockFrom(Stock stockFrom) {
+		this.stockFrom = stockFrom;
 	}
 	
-	public Stock getStock2() {
-		return stock2;
+	public Stock getStockTo() {
+		return stockTo;
 	}
 	
-	public void setStock2(Stock stock2) {
-		this.stock2 = stock2;
+	public void setStockTo(Stock stockTo) {
+		this.stockTo = stockTo;
 	}
 	
 	public AbstractTransport getTransport() {
@@ -54,7 +54,7 @@ public class Report {
 
 	@Override
 	public String toString() {
-		return "Report [stock1=" + stock1 + ", stock2=" + stock2 + ", maxPrice=" + maxPrice + ", transport=" + transport
+		return "Report [stock1=" + stockFrom + ", stock2=" + stockTo + ", maxPrice=" + maxPrice + ", transport=" + transport
 				+ ", items=" + items + "]";
 	}
 	

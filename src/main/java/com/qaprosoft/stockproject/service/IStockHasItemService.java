@@ -1,12 +1,12 @@
 package com.qaprosoft.stockproject.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.qaprosoft.stockproject.entity.StockHasItem;
 
 public interface IStockHasItemService {
     
-    ArrayList<StockHasItem> getItemAndQuantityByStockId(Long id);
+    List<StockHasItem> getItemAndQuantityByStockId(Long id);
 
     StockHasItem insertNewItemInStock(Long stockID, StockHasItem shi);
 

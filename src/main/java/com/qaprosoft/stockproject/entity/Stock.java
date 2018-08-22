@@ -1,17 +1,17 @@
 package com.qaprosoft.stockproject.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Stock extends AbstractEntity {
 
 	private String name;
-	private ArrayList<StockHasItem> items;
-	private ArrayList<TypeOfTransport> types;
+	private List<StockHasItem> items;
+	private List<TypeOfTransport> types;
 
 //	1 - auto
 //	2 - train
 
-	public ArrayList<StockHasItem> getItems() {
+	public List<StockHasItem> getItems() {
 		return items;
 	}
 
@@ -23,15 +23,15 @@ public class Stock extends AbstractEntity {
 		this.name = name;
 	}
 
-	public ArrayList<TypeOfTransport> getTypes() {
+	public List<TypeOfTransport> getTypes() {
 		return types;
 	}
 
-	public void setTypes(ArrayList<TypeOfTransport> types) {
+	public void setTypes(List<TypeOfTransport> types) {
 		this.types = types;
 	}
 
-	public void setItems(ArrayList<StockHasItem> items) {
+	public void setItems(List<StockHasItem> items) {
 		this.items = items;
 	}
 

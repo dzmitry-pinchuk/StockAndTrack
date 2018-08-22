@@ -1,4 +1,4 @@
-package com.qaprosoft.stockproject.logic;
+package com.qaprosoft.stockproject.algorithm;
 
 import java.util.ArrayList;
 import java.util.List;

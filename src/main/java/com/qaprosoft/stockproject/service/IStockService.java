@@ -1,11 +1,11 @@
 package com.qaprosoft.stockproject.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.qaprosoft.stockproject.entity.Stock;
 
 public interface IStockService {
-    ArrayList<Stock> getAll();
+    List<Stock> getAll();
 
     Stock getByID(Long id);
 
@@ -13,6 +13,6 @@ public interface IStockService {
 
     void createNewStock(Stock stock);
 
-    ArrayList<Stock> getAllStocks();
+    List<Stock> getAllStocks();
 
 }

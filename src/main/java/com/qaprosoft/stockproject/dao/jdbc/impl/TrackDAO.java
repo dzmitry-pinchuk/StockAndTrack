@@ -20,7 +20,7 @@ public class TrackDAO extends JDBCAbstractDAO implements ITrackDAO {
 	private static Logger logger = LogManager.getLogger();
 
 	public static final String SQL_SELECT_ALL_TRACK = "SELECT * FROM sat.tracks t LEFT JOIN sat.transport tr ON t.transport_id=tr.id";
-	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.tracks t LEFT JOIN sat.transport tr ON t.transport_id=tr.id WHERE id=?";
+	public static final String SQL_SELECT_BY_ID = "SELECT * FROM sat.tracks t LEFT JOIN sat.transport tr ON t.transport_id=tr.id WHERE t.id=?";
 	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.tracks WHERE id = ?";
 //	public static final String SQL_CREATE_NEW_TRACK = "INSERT INTO sat.stocks (`name`, `types_of_transports_id`) VALUES (?,?)";
 
@@ -106,7 +106,7 @@ public class TrackDAO extends JDBCAbstractDAO implements ITrackDAO {
 	}
 
 	@Override
-	public void createNewTrack(Track track) {
+	public void createNewEntity(Track track) {
 		throw new UnsupportedOperationException("method not create");
 	}
 

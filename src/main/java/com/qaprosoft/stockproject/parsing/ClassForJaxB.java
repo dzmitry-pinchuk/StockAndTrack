@@ -1,10 +1,7 @@
 package com.qaprosoft.stockproject.parsing;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import com.qaprosoft.stockproject.dao.jdbc.impl.StockDAO;
-import com.qaprosoft.stockproject.dao.jdbc.impl.TrackDAO;
-import com.qaprosoft.stockproject.dao.jdbc.impl.TrainDAO;
 import com.qaprosoft.stockproject.entity.Stock;
 import com.qaprosoft.stockproject.entity.transport.Track;
 import com.qaprosoft.stockproject.entity.transport.Train;
@@ -14,11 +11,14 @@ import com.qaprosoft.stockproject.service.impl.TrainService;
 
 public class ClassForJaxB {
 	
-	private ArrayList<Stock> stocks;
-	private ArrayList<Track> tracks;
-	private ArrayList<Train> trains;
+	private List<Stock> stocks;
+	private List<Track> tracks;
+	private List<Train> trains;
 	
 	public ClassForJaxB() {
+	}
+
+	public ClassForJaxB(int i) {
 
 		StockService ss = new StockService();
 		this.stocks = ss.getAllStocks();
@@ -31,27 +31,27 @@ public class ClassForJaxB {
 	
 	}
 
-	public ArrayList<Stock> getStocks() {
+	public List<Stock> getStocks() {
 		return stocks;
 	}
 
-	public void setStocks(ArrayList<Stock> stocks) {
+	public void setStocks(List<Stock> stocks) {
 		this.stocks = stocks;
 	}
 
-	public ArrayList<Track> getTracks() {
+	public List<Track> getTracks() {
 		return tracks;
 	}
 
-	public void setTracks(ArrayList<Track> tracks) {
+	public void setTracks(List<Track> tracks) {
 		this.tracks = tracks;
 	}
 
-	public ArrayList<Train> getTrains() {
+	public List<Train> getTrains() {
 		return trains;
 	}
 
-	public void setTrains(ArrayList<Train> trains) {
+	public void setTrains(List<Train> trains) {
 		this.trains = trains;
 	}
 

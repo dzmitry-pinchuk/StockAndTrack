@@ -7,13 +7,13 @@ import com.qaprosoft.stockproject.entity.Item;
 
 public interface IItemService {
     
-    ArrayList<Item> getAll();
+    List<Item> getAll();
 
     Item getById(Long id);
 
     void deleteById(Long id);
 
-    Item createNewItem(Item item);
+    void createNewItem(Item item);
 
     List<Item> getItemsByStockId(Long id);
 

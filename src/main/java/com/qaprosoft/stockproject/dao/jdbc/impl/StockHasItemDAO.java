@@ -152,15 +152,16 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		Integer temp = null;
+		Integer temp = 0;
 		try {
 			conn = getConnection();
 			ps = conn.prepareStatement(SQL_GET_QUANTITY_BY_STOCK_AND_ITEM);
 			ps.setLong(1, stockId);
 			ps.setLong(2, itemId);
 			rs = ps.executeQuery();
-			rs.next();
-			temp = rs.getInt("quantity");
+			if (rs.next()) {
+				temp = rs.getInt("quantity");
+			}
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not getItemAndQuantityByStockId: " + e);
 		} finally {

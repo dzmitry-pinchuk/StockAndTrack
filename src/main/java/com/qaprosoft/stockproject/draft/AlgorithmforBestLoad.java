@@ -12,7 +12,7 @@ public class AlgorithmforBestLoad {
     private int bestLoadPrice;
     private boolean calculated;
 
-    public List<Item> getBestItemLoad(List<Item> itemList, Integer maxWeight) {
+    public  List<Item> getBestItemLoad(List<Item> itemList, Integer maxWeight) {
 	bestItemsLoadList = new ArrayList<>();
 	int n = itemList.size();
 	if (n > 0 && maxWeight > 0) {
@@ -53,7 +53,7 @@ public class AlgorithmforBestLoad {
 	return bestItemsLoadList;
     }
 
-    // public Integer getBestLoadPrice(List<Item> itemList, Integer maxWeight) {
+    // public static Integer getBestLoadPrice(List<Item> itemList, Integer maxWeight) {
     // if (!calculated)
     // getBestItemLoad(itemList, maxWeight);
     // return bestLoadPrice;

@@ -5,19 +5,19 @@ import java.util.List;
 import com.qaprosoft.stockproject.entity.StockHasItem;
 
 public interface IStockHasItemService {
-    
-    List<StockHasItem> getItemAndQuantityByStockId(Long id);
 
-    StockHasItem insertNewItemInStock(Long stockID, StockHasItem shi);
+	List<StockHasItem> getItemAndQuantityByStockId(Long id);
 
-    void updateItemInStock(Long stockID, Long itemId, Integer newCount);
+	StockHasItem insertNewItemInStock(Long stockID, StockHasItem shi);
 
-    void deleteItemInStock(StockHasItem shi);
-    
-    void deleteItemByStockIdAndItemId(Long stockId, Long itemId);
-    
-    Integer getQuantityByStockAndItem(Long itemId, Long stockId);
-    
-    void  insertNewItemInStockByStockItemAndNumber(Long stockID, Long itemId, Integer quantity);
+	void updateItemInStock(Long stockID, Long itemId, Integer newCount);
+
+	void deleteItemInStock(StockHasItem shi);
+
+	void deleteItemByStockIdAndItemId(Long stockId, Long itemId);
+
+	Integer getQuantityByStockAndItem(Long itemId, Long stockId);
+
+	void insertNewItemInStockByStockItemAndNumber(Long stockID, Long itemId, Integer quantity);
 
 }

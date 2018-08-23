@@ -9,26 +9,26 @@ import com.qaprosoft.stockproject.service.impl.StockService;
 import com.qaprosoft.stockproject.service.impl.TrackService;
 import com.qaprosoft.stockproject.service.impl.TrainService;
 
-public class ClassForJaxB {
-	
+public class AllTable {
+
 	private List<Stock> stocks;
 	private List<Track> tracks;
 	private List<Train> trains;
-	
-	public ClassForJaxB() {
+
+	public AllTable() {
 	}
 
-	public ClassForJaxB(int i) {
+	public AllTable(int i) {
 
 		StockService ss = new StockService();
 		this.stocks = ss.getAll();
-		
+
 		TrackService ts = new TrackService();
 		this.tracks = ts.getAll();
 
 		TrainService trs = new TrainService();
 		this.trains = trs.getAll();
-	
+
 	}
 
 	public List<Stock> getStocks() {
@@ -59,8 +59,5 @@ public class ClassForJaxB {
 	public String toString() {
 		return "ClassForJaxB [stocks=" + stocks + ", tracks=" + tracks + ", trains=" + trains + "]";
 	}
-	
-	
-	
 
 }

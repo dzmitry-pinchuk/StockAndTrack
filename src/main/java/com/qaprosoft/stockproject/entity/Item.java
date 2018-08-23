@@ -6,7 +6,6 @@ public class Item extends AbstractEntity {
 	private Integer weight;
 	private Integer price;
 
-
 	public Item(String name, Integer weight, Integer price) {
 		this.name = name;
 		this.weight = weight;

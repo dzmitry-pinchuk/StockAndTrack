@@ -26,7 +26,6 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 	public static final String SQL_DELETE_BY_ID = "DELETE FROM sat.stocks WHERE id = ?";
 	public static final String SQL_CREATE_NEW_ITEM = "INSERT INTO sat.stocks (`name`, `types_of_transports_id`) VALUES (?,?)";
 	public static final String SQL_SELECT_TYPES_OF_TRANSPORT_BY_STOCK_ID = "SELECT * FROM sat.types_of_transports_has_stocks where stocks_id = ?";
-	
 
 	@Override
 	public List<Stock> getAll() {

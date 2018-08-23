@@ -11,9 +11,9 @@ import com.qaprosoft.stockproject.entity.Report;
 import com.qaprosoft.stockproject.entity.Stock;
 import com.qaprosoft.stockproject.entity.transport.Track;
 import com.qaprosoft.stockproject.entity.transport.Train;
-import com.qaprosoft.stockproject.parsing.ClassForJaxB;
+import com.qaprosoft.stockproject.parsing.AllTable;
 
-public class CallAllMethod {
+public class Shell {
 
 	private static final Logger logger = LogManager.getLogger();
 	private static Scanner scan = new Scanner(System.in);
@@ -21,11 +21,10 @@ public class CallAllMethod {
 	public static void makeMagic() {
 
 		Report report = new Report();
-		ClassForJaxB all = new ClassForJaxB(1);
+		AllTable all = new AllTable(1);
 		List<Stock> stocks = all.getStocks();
 		List<Track> tracks = all.getTracks();
 		List<Train> trains = all.getTrains();
-
 
 		logger.log(Level.INFO, "DataBase has Stocks: ");
 
@@ -78,9 +77,7 @@ public class CallAllMethod {
 				}
 			}
 			break;
-
 		}
-
 		BaseLogic.baseLogic(report);
 	}
 }

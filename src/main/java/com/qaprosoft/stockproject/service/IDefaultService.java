@@ -4,12 +4,12 @@ import java.util.List;
 
 public interface IDefaultService<K, E> {
 
-    List<E> getAll();
+	List<E> getAll();
 
-    E getById(K id);
+	E getById(K id);
 
-    void deleteById(K id);
+	void deleteById(K id);
 
-    void createNewEntity(E entity);
+	void createNewEntity(E entity);
 
 }

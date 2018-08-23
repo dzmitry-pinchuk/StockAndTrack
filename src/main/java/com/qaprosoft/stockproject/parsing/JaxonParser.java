@@ -17,14 +17,14 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JaxonParser {
-	
+
 	private static final Logger logger = LogManager.getLogger();
 	private static final String PATH = "src\\main\\resources\\data.json";
 	private static final String PATH_TO_READ = "src\\main\\resources\\dataRead.json";
 	private ObjectMapper om = new ObjectMapper();
-	
+
 	public void writeToJson() {
-		ClassForJaxB temp = new ClassForJaxB(1);
+		AllTable temp = new AllTable(1);
 		try {
 			om.writeValue(new File(PATH), temp);
 		} catch (JsonGenerationException e) {
@@ -35,13 +35,13 @@ public class JaxonParser {
 			logger.log(Level.ERROR, "IOException: " + e);
 		}
 	}
-	
-	public ClassForJaxB readFromJson() {
+
+	public AllTable readFromJson() {
 		InputStream is = null;
-		ClassForJaxB temp = new ClassForJaxB();
+		AllTable temp = new AllTable();
 		try {
 			is = new FileInputStream(PATH_TO_READ);
-			temp = om.readValue(is, ClassForJaxB.class);
+			temp = om.readValue(is, AllTable.class);
 		} catch (FileNotFoundException e) {
 			logger.log(Level.ERROR, "FileNotFoundException: " + e.getMessage());
 		} catch (JsonParseException e) {
@@ -52,12 +52,8 @@ public class JaxonParser {
 			logger.log(Level.ERROR, "IOException: " + e);
 		} finally {
 			IOUtils.closeQuietly(is);
-		} 
+		}
 		return temp;
 	}
-	
-	
-	
-	
 
 }

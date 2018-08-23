@@ -1,3 +1,4 @@
+package com.qaprosoft.stockproject.draft;
 /*package com.qaprosoft.stockproject.dao.jdbc.impl;
 
 import java.sql.Connection;

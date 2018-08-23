@@ -15,8 +15,8 @@ import com.qaprosoft.stockproject.dao.JDBCAbstractDAO;
 import com.qaprosoft.stockproject.entity.TypeOfTransport;
 import com.qaprosoft.stockproject.entity.transport.Train;
 
-public class TrainDAO extends JDBCAbstractDAO implements ITrainDAO{
-	
+public class TrainDAO extends JDBCAbstractDAO implements ITrainDAO {
+
 	private static Logger logger = LogManager.getLogger();
 
 	public static final String SQL_SELECT_ALL_TRACK = "SELECT * FROM sat.trains t LEFT JOIN sat.transport tr ON t.transport_id=tr.id";
@@ -108,7 +108,5 @@ public class TrainDAO extends JDBCAbstractDAO implements ITrainDAO{
 	public void createNewEntity(Train train) {
 		throw new UnsupportedOperationException("method not create");
 	}
-	
-	
 
 }

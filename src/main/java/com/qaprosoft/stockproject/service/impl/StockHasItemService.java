@@ -43,12 +43,10 @@ public class StockHasItemService implements IStockHasItemService {
 		shiDAO.deleteItemInStock(shi);
 	}
 
-
 	@Override
 	public Integer getQuantityByStockAndItem(Long itemId, Long stockId) {
 		return shiDAO.getQuantityByStockAndItem(itemId, stockId);
 	}
-
 
 	@Override
 	public void insertNewItemInStockByStockItemAndNumber(Long stockID, Long itemId, Integer quantity) {

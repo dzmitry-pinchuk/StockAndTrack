@@ -105,7 +105,7 @@ public class TrainDAO extends JDBCAbstractDAO implements ITrainDAO{
 	}
 
 	@Override
-	public void createNewTrack(Train train) {
+	public void createNewEntity(Train train) {
 		throw new UnsupportedOperationException("method not create");
 	}
 	

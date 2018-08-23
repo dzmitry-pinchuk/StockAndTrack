@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -31,8 +32,8 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 	public static final String SQL_DELETE_BY_STOCK_AND_ITEM = "DELETE FROM sat.stocks_has_items WHERE stocks_id = ? AND items_id = ? ";
 
 	@Override
-	public ArrayList<StockHasItem> getItemAndQuantityByStockId(Long id) {
-		ArrayList<StockHasItem> stockHasItem = new ArrayList<>();
+	public List<StockHasItem> getItemAndQuantityByStockId(Long id) {
+		List<StockHasItem> stockHasItem = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -60,9 +61,6 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 			Item item = new Item();
 			item.setId(rs.getLong("items_id"));
 			shi.setItem(item);
-			// Stock stock = new Stock();
-			// stock.setId(rs.getLong("stocks_id"));
-			// shi.setStock(stock);
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not createObject: " + e);
 		}
@@ -75,14 +73,12 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(SQL_INSERT_NEW_ITEM_IN_STOCK);
-			// ps.setLong(1, shi.getStock().getId());
 			ps.setLong(1, stockID);
 			ps.setLong(2, shi.getItem().getId());
 			ps.setLong(3, shi.getQuantity());
 			ps.execute();
-			shi.setId(ps.getGeneratedKeys().getLong("id"));
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not write from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not insertNewItemInStock: " + e);
 		} finally {
 			endOperation(ps, conn);
 		}
@@ -95,14 +91,12 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(SQL_INSERT_NEW_ITEM_IN_STOCK);
-			// ps.setLong(1, shi.getStock().getId());
 			ps.setLong(1, stockID);
 			ps.setLong(2, itemId);
 			ps.setLong(3, quantity);
 			ps.execute();
-
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not write from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not insertNewItemInStockByStockItemAndNumber: " + e);
 		} finally {
 			endOperation(ps, conn);
 		}
@@ -114,13 +108,12 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(SQL_UPDATE_QUANTITY);
-			// ps.setLong(2, shi.getStock().getId());
 			ps.setLong(2, stockId);
 			ps.setLong(3, itemId);
 			ps.setLong(1, newCount);
 			ps.execute();
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not write from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not updateItemInStock: " + e);
 		} finally {
 			endOperation(ps, conn);
 		}
@@ -135,7 +128,7 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 			ps.setLong(1, shi.getId());
 			ps.execute();
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not write from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not deleteItemInStock: " + e);
 		} finally {
 			endOperation(ps, conn);
 		}
@@ -151,17 +144,18 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 			ps.setLong(2, itemId);
 			ps.execute();
 		} catch (SQLException e) {
-			logger.log(Level.ERROR, "SQLException. Can not write from field: " + e);
+			logger.log(Level.ERROR, "SQLException. Can not deleteItemByStockIdAndItemId: " + e);
 		} finally {
 			endOperation(ps, conn);
 		}
 	}
-
+	
 	@Override
 	public Integer getQuantityByStockAndItem(Long stockId, Long itemId) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		Integer temp = 0;
 		try {
 			conn = getConnection();
 			ps = conn.prepareStatement(SQL_GET_QUANTITY_BY_STOCK_AND_ITEM);
@@ -169,15 +163,20 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 			ps.setLong(2, itemId);			
 			rs = ps.executeQuery();
 			if (rs.next()) {
+<<<<<<< HEAD
 			    return rs.getInt(1);
 			}
 			
+=======
+				temp = rs.getInt("quantity");
+			}
+>>>>>>> 7a38e8d2231dde78a2953535b50a2b15f1ca836a
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not getItemAndQuantityByStockId: " + e);
 		} finally {
 			endOperation(ps, conn, rs);
 		}
-		return null;
+		return temp;
 	}
 
 }

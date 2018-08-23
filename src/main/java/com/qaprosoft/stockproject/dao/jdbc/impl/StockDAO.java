@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -28,8 +29,8 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 	
 
 	@Override
-	public ArrayList<Stock> getAll() {
-		ArrayList<Stock> allStocks = new ArrayList<>();
+	public List<Stock> getAll() {
+		List<Stock> allStocks = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -50,7 +51,6 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 
 	private Stock createObject(ResultSet rs) {
 		Stock stock = new Stock();
-//		ArrayList<StockHasItem> items = new ArrayList<>();
 		try {
 			stock.setId(rs.getLong("id"));
 			stock.setName(rs.getString("name"));
@@ -88,15 +88,15 @@ public class StockDAO extends JDBCAbstractDAO implements IStockDAO {
 	}
 
 	@Override
-	public void createNewStock(Stock stock) {
+	public void createNewEntity(Stock stock) {
 		throw new UnsupportedOperationException("method not create");
 	}
 
-	private ArrayList<TypeOfTransport> getTypesByStockId(Long id) {
+	private List<TypeOfTransport> getTypesByStockId(Long id) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		ArrayList<TypeOfTransport> types = new ArrayList<>();
+		List<TypeOfTransport> types = new ArrayList<>();
 		try {
 			conn = getConnection();
 			ps = conn.prepareStatement(SQL_SELECT_TYPES_OF_TRANSPORT_BY_STOCK_ID);

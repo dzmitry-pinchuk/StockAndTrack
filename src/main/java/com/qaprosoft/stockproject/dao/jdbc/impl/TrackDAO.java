@@ -106,7 +106,7 @@ public class TrackDAO extends JDBCAbstractDAO implements ITrackDAO {
 	}
 
 	@Override
-	public void createNewTrack(Track track) {
+	public void createNewEntity(Track track) {
 		throw new UnsupportedOperationException("method not create");
 	}
 

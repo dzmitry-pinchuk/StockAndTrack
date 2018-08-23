@@ -1,17 +1,8 @@
 package com.qaprosoft.stockproject.dao;
 
-import java.util.ArrayList;
-
 import com.qaprosoft.stockproject.entity.transport.Train;
 
-public interface ITrainDAO {
+public interface ITrainDAO extends IDefaultDAO<Long, Train> {
 
-    ArrayList<Train> getAll();
-
-    Train getById(Long id);
-
-    void deleteById(Long id);
-
-    void createNewTrack(Train train);
 
 }

@@ -21,7 +21,7 @@ public class ClassForJaxB {
 	public ClassForJaxB(int i) {
 
 		StockService ss = new StockService();
-		this.stocks = ss.getAllStocks();
+		this.stocks = ss.getAll();
 		
 		TrackService ts = new TrackService();
 		this.tracks = ts.getAll();

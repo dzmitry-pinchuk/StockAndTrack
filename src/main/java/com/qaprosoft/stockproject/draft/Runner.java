@@ -1,4 +1,4 @@
-package com.qaprosoft.stockproject.algorithm;
+package com.qaprosoft.stockproject.draft;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +33,10 @@ public class Runner {
 	train.setMaxCarryingCapacity(30);
 
 	Stock stock1 = new Stock();
-	stock1 = stockService.getByID((long) 1);
+	stock1 = stockService.getById((long) 1);
 
 	Stock stock2 = new Stock();
-	stock2 = stockService.getByID((long) 2);
+	stock2 = stockService.getById((long) 2);
 	System.out.println(stock1);
 	logger.info(stock1);
 

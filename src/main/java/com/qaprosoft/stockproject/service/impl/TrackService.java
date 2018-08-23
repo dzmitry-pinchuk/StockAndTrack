@@ -1,12 +1,12 @@
 package com.qaprosoft.stockproject.service.impl;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.qaprosoft.stockproject.dao.jdbc.impl.TrackDAO;
 import com.qaprosoft.stockproject.entity.transport.Track;
-import com.qaprosoft.stockproject.service.ITrackService;
+import com.qaprosoft.stockproject.service.IDefaultService;
 
-public class TrackService implements ITrackService{
+public class TrackService implements IDefaultService<Long, Track> {
 
     private TrackDAO tDAO;
 
@@ -15,9 +15,8 @@ public class TrackService implements ITrackService{
 	this.tDAO = new TrackDAO();
     }
 
-    public ArrayList<Track> getAll() {
-	ArrayList<Track> allTracks = tDAO.getAll();
-	return allTracks;
+    public List<Track> getAll() {
+	return tDAO.getAll();
     }
 
     public Track getById(Long id) {
@@ -30,9 +29,9 @@ public class TrackService implements ITrackService{
     }
 
     @Override
-    public void createNewTrack(Track track) {
-		
+    public void createNewEntity(Track entity) {
+	// TODO Auto-generated method stub
+
     }
-    
 
 }

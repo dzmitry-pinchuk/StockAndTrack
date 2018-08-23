@@ -33,15 +33,15 @@ public class ItemService implements IItemService {
 	}
 
 	@Override
-	public void createNewItem(Item item) {
-		iDAO.createNewEntity(item);
-	}
-
-	@Override
 	public List<Item> getItemsByStockId(Long id) {
 		ArrayList<Item> allItems = iDAO.getItemsByStockId(id);
 		return allItems;
 
+	}
+
+	@Override
+	public void createNewEntity(Item entity) {
+	   	    
 	}
 
 }

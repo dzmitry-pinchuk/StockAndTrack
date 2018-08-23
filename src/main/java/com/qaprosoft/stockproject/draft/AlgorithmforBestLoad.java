@@ -1,4 +1,4 @@
-package com.qaprosoft.stockproject.algorithm;
+package com.qaprosoft.stockproject.draft;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +52,12 @@ public class AlgorithmforBestLoad {
 	}
 	return bestItemsLoadList;
     }
+
+    // public Integer getBestLoadPrice(List<Item> itemList, Integer maxWeight) {
+    // if (!calculated)
+    // getBestItemLoad(itemList, maxWeight);
+    // return bestLoadPrice;
+    // }
 
     public Integer getBestLoadPrice() {
 	return bestLoadPrice;

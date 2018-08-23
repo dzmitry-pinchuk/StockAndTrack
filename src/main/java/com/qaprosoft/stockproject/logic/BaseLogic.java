@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qaprosoft.stockproject.algorithm.TransportBestLoadItemsService;
+import com.qaprosoft.stockproject.draft.TransportBestLoadItemsService;
 import com.qaprosoft.stockproject.entity.Item;
 import com.qaprosoft.stockproject.entity.Report;
 

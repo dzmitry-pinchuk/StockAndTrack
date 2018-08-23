@@ -1,4 +1,4 @@
-package com.qaprosoft.stockproject.algorithm;
+package com.qaprosoft.stockproject.draft;
 
 import java.util.List;
 
@@ -29,8 +29,8 @@ public class TransportBestLoadItemsServiceCopy {
 	public boolean checkTrasportForStock(Long fromIdStock, Long toIdStock, Long idTrasport) {
 
 		TypeOfTransport typeOfTransport = trackService.getById(idTrasport).getType();
-		List<TypeOfTransport> list1 = stockService.getByID(fromIdStock).getTypes();
-		List<TypeOfTransport> list2 = stockService.getByID(toIdStock).getTypes();
+		List<TypeOfTransport> list1 = stockService.getById(fromIdStock).getTypes();
+		List<TypeOfTransport> list2 = stockService.getById(toIdStock).getTypes();
 		return list1.contains(typeOfTransport) && list2.contains(typeOfTransport);
 
 	}

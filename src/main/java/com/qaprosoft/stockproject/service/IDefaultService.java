@@ -2,16 +2,14 @@ package com.qaprosoft.stockproject.service;
 
 import java.util.List;
 
-public interface IDefaultService<T> {
+public interface IDefaultService<K, E> {
 
-    void add(T entity);
+    List<E> getAll();
 
-    T getById(Long id);
+    E getById(K id);
 
-    void update(T entity);
+    void deleteById(K id);
 
-    void delete(Long id);
-
-    List<T> getAll();
+    void createNewEntity(E entity);
 
 }

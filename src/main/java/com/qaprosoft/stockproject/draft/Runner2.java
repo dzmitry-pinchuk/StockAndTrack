@@ -1,4 +1,4 @@
-package com.qaprosoft.stockproject.logic;
+package com.qaprosoft.stockproject.draft;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,10 +22,10 @@ public class Runner2 {
 	//stockHasItemService.getQuantityByStockAndItem(item.getId(), fromIdStock);
 	
 	Stock stock1 = new Stock();
-	stock1 = stockService.getByID((long) 1);
+	stock1 = stockService.getById((long) 1);
 
 	Stock stock2 = new Stock();
-	stock2 = stockService.getByID((long) 2);
+	stock2 = stockService.getById((long) 2);
 	System.out.println(stock1);
 	logger.info(stock2);
 	
@@ -36,7 +36,7 @@ public class Runner2 {
 	stockHasItemService1.updateItemInStock(a1, b1, bb);
 	
 	TransportBestLoadItemsServiceCopy transportBestLoadItemsService = new TransportBestLoadItemsServiceCopy();
-	transportBestLoadItemsService.checktrasportforstock((long)1,(long) 2, (long)1);
+	//transportBestLoadItemsService.checktrasportforstock((long)1,(long) 2, (long)1);
 	transportBestLoadItemsService.trasportItems((long)1,(long) 2, (long)1);
 	
 	

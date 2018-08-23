@@ -33,9 +33,6 @@ public class StockHasItemService implements IStockHasItemService {
 		return shi;
 	}
 
-	// public void updateItemInStock(Long stockID, StockHasItem shi) {
-	// shiDAO.updateItemInStock(stockID, shi);
-	// }
 	@Override
 	public void updateItemInStock(Long stockID, Long itemId, Integer newCount) {
 		shiDAO.updateItemInStock(stockID, itemId, newCount);

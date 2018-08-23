@@ -68,17 +68,21 @@ public class Runner {
 
 	AlgorithmforBestLoad algorithmforBestLoad = new AlgorithmforBestLoad();
 	List<Item> bestItemLoad1 = algorithmforBestLoad.getBestItemLoad(items1, train.getMaxCarryingCapacity());
-	Integer bestLoadPrice1 = algorithmforBestLoad.getBestLoadPrice(items1, train.getMaxCarryingCapacity());
+	Integer bestLoadPrice1 = algorithmforBestLoad.getBestLoadPrice();
 	logger.info(bestItemLoad1);
 	logger.info(bestLoadPrice1);
 
+	logger.info("BIG CHECK");
 	logger.info(stock1);
 	logger.info(stock2);
 	logger.info(train2);
 	
+	TransportBestLoadItemsServiceCopy transportBestLoadItemsService = new TransportBestLoadItemsServiceCopy();
+	transportBestLoadItemsService.trasportItems((long)1,(long) 1, (long)1);
 	
-	
-	
+	logger.info(stock1);
+	logger.info(stock2);
+	logger.info(train2);
 
 	// TransportBestLoadItemsServiceCopy transportBestLoadItemsServiceCopy = new
 	// TransportBestLoadItemsServiceCopy();

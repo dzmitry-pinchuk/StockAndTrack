@@ -16,6 +16,9 @@ import com.qaprosoft.stockproject.entity.Item;
 //import com.qaprosoft.stockproject.entity.Stock;
 import com.qaprosoft.stockproject.entity.StockHasItem;
 
+
+
+
 public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO {
 
 	private static final Logger logger = LogManager.getLogger();
@@ -155,7 +158,7 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 	}
 
 	@Override
-	public Integer getQuantityByStockAndItem(Long itemId, Long stockId) {
+	public Integer getQuantityByStockAndItem(Long stockId, Long itemId) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -163,9 +166,12 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 			conn = getConnection();
 			ps = conn.prepareStatement(SQL_GET_QUANTITY_BY_STOCK_AND_ITEM);
 			ps.setLong(1, stockId);
-			ps.setLong(2, itemId);
+			ps.setLong(2, itemId);			
 			rs = ps.executeQuery();
-			return rs.getInt(0);
+			if (rs.next()) {
+			    return rs.getInt(1);
+			}
+			
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, "SQLException. Can not getItemAndQuantityByStockId: " + e);
 		} finally {
@@ -175,3 +181,24 @@ public class StockHasItemDAO extends JDBCAbstractDAO implements IStockHasItemDAO
 	}
 
 }
+
+
+//public Address getById(Long id) {
+//	connection = getConnection();
+//	Address address = new Address();
+//	try (PreparedStatement preparedStatement = connection.prepareStatement(GET_ADDRESS_BY_ID)) {
+//	    preparedStatement.setLong(1, id);
+//	    try (ResultSet result = preparedStatement.executeQuery()) {
+//		if (result.next()) {
+//		    setFieldsForAddress(result, address);
+//		}
+//	    } catch (SQLException e) {
+//		lOGGER.error(e.getMessage());
+//	    }
+//	} catch (SQLException e) {
+//	    lOGGER.error(e.getMessage());
+//	} finally {
+//	    LazyConnectionPool.getInstance().releaseConnection(connection);
+//	}
+//	return address;
+// }

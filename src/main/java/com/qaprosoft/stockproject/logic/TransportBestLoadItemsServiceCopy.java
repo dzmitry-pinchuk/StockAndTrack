@@ -3,6 +3,9 @@ package com.qaprosoft.stockproject.logic;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.qaprosoft.stockproject.entity.Item;
 import com.qaprosoft.stockproject.entity.TypeOfTransport;
 import com.qaprosoft.stockproject.service.impl.ItemService;
@@ -11,6 +14,7 @@ import com.qaprosoft.stockproject.service.impl.StockService;
 import com.qaprosoft.stockproject.service.impl.TrackService;
 
 public class TransportBestLoadItemsServiceCopy {
+    private static Logger logger = LogManager.getLogger();
 
     private ItemService itemService;
 // for Transport
@@ -18,7 +22,7 @@ public class TransportBestLoadItemsServiceCopy {
     private StockService stockService;
     // private StockHasItemDAO stockHasItemDAO;
     private StockHasItemService stockHasItemService;
-
+    //Integer fromCount;
     public TransportBestLoadItemsServiceCopy() {
 	this.itemService = new ItemService();
 	this.trackService = new TrackService();
@@ -44,14 +48,23 @@ public class TransportBestLoadItemsServiceCopy {
 	Integer maxWeight = trackService.getById(idTrasport).getMaxCarryingCapacity();
 	AlgorithmforBestLoad algorithmforBestLoad = new AlgorithmforBestLoad();
 	List<Item> bestLoadList = algorithmforBestLoad.getBestItemLoad(items, maxWeight);
-
+	logger.info(bestLoadList);
+	logger.info("priceClass" + algorithmforBestLoad.getBestLoadPrice());
+	
+	int tempPrice = 0;
+	for (Item item : bestLoadList) {
+		tempPrice = tempPrice + item.getPrice();
+	}
+	logger.info("tnt" +tempPrice);
 	for (Item item : bestLoadList) {
 	    // update in fromStock
+	    Integer a =1;
+	    Integer b =1;
 	    Integer fromCount = stockHasItemService.getQuantityByStockAndItem(item.getId(), fromIdStock);
-	    if (fromCount == 1) {
+	    if (fromCount == a) {
 		stockHasItemService.deleteItemByStockIdAndItemId(fromIdStock, item.getId());
 		// stockHasItemDAO.deleteItemInStock(shi); deleteb by stock and item id
-	    } else if (fromCount > 1) {
+	    } else if (fromCount > b) {
 		stockHasItemService.updateItemInStock(fromIdStock, item.getId(), fromCount - 1);
 	    }
 	    // update in toStock

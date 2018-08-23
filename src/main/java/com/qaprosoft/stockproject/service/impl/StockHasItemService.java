@@ -47,8 +47,8 @@ public class StockHasItemService implements IStockHasItemService {
     }
 
     @Override
-    public Integer getQuantityByStockAndItem(Long itemId, Long stockId) {
-	return shiDAO.getQuantityByStockAndItem(itemId, stockId);
+    public Integer getQuantityByStockAndItem(Long stockId, Long itemId) {
+	return shiDAO.getQuantityByStockAndItem(stockId, itemId);
     }
 
     @Override

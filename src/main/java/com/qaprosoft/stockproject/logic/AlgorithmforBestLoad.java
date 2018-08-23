@@ -55,12 +55,20 @@ public class AlgorithmforBestLoad {
 	return bestItemsLoadList;
     }
 
-    public Integer getBestLoadPrice(List<Item> itemList, Integer maxWeight) {
-	if (!calculated)
-	    getBestItemLoad(itemList, maxWeight);
-	return bestLoadPrice;
-    }
+//    public Integer getBestLoadPrice(List<Item> itemList, Integer maxWeight) {
+//	if (!calculated)
+//	    getBestItemLoad(itemList, maxWeight);
+//	return bestLoadPrice;
+//    }
 
+    
+    public Integer getBestLoadPrice() {
+
+  	return bestLoadPrice;
+	}
+      
+    
+    
     public Integer getSolutionWeight() {
 	return solutionWeight;
     }

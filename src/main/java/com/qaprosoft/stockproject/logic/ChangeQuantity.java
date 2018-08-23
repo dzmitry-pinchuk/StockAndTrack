@@ -45,7 +45,6 @@ public class ChangeQuantity {
 				if (usedItems.contains(itemByStockID2.get(j).getItem())) {
 					int tempQuantity = itemByStockID2.get(j).getQuantity()+1;
 					itemByStockID2.get(j).setQuantity(tempQuantity);
-//					shis.updateItemInStock(stockId2, itemByStockID2.get(j));
 					shis.updateItemInStock(report.getStockTo().getId(), itemByStockID2.get(j).getItem().getId(), tempQuantity);
 					logger.log(Level.INFO, "Entry in DataBase was change");
 				} else {
@@ -63,7 +62,7 @@ public class ChangeQuantity {
 	
 	public static void changeQuantity2(Report report) {
 		StockHasItemService stockHasItemService = new StockHasItemService();
-		ArrayList<Item> bestLoadList = (ArrayList<Item>) report.getItems();
+		List<Item> bestLoadList = report.getItems();
 		for (Item item : bestLoadList) {
 			// update in fromStock
 			Integer fromCount = stockHasItemService.getQuantityByStockAndItem(item.getId(), report.getStockFrom().getId());

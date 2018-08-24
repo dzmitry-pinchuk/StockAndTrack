@@ -29,7 +29,7 @@ public class BaseLogic {
 		}
 		logger.log(Level.INFO, "begin work baseLogic");
 		report.setItems(usedItems);
-		QuantityChanger.changeQuantity2(report);
+		QuantityChanger.changeQuantity(report);
 
 		int tempPrice = 0;
 		for (Item item : usedItems) {

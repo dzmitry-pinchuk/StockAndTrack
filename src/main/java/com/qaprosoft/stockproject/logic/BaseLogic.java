@@ -12,7 +12,7 @@ import com.qaprosoft.stockproject.entity.Report;
 import com.qaprosoft.stockproject.entity.TypeOfTransport;
 import com.qaprosoft.stockproject.service.impl.ItemService;
 
-public class BaseLogic {
+public final class BaseLogic {
 
 	private static final Logger logger = LogManager.getLogger();
 	private static ItemService itemService = new ItemService();
